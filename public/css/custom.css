@@ -18,14 +18,14 @@
     font-style: normal;
 }
 
-body{
+body {
     font-family: "Roboto Mono";
     color: #2B2B2B;
-    background-color: rgb(254,247,245);
+    background-color: rgb(254, 247, 245);
 }
 
 .navbar-custom {
-background-color: #FFFFFF;
+    background-color: #FFFFFF;
     padding: 30px 0px;
     background-color: #FFFFFF;
 }
@@ -44,33 +44,109 @@ background-color: #FFFFFF;
 
 .navbar-custom .title {
     /*font-weight: 500;*/
+    margin: 5px 0 0px 0;
     font-size: 26px;
     font-family: "Bebas Neue";
     text-decoration: none;
 }
 
-.btn-custom-primary {
-    background-color: rgb(39, 230, 184);;
-}
-
-.title-area{
-    padding: 70px 0 70px 0;
-    background-color: rgb(239,254,255);
-}
-
-.title-area-heading{
-    font-size: 36px;
+.text-custom-title {
+    font-style: normal;
     font-weight: 900;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 38px;
 }
 
-.title-area-description{
-    color:grey;
-    font-weight: 100;
+.text-custom-small {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
 }
 
-.filter-option{
-    text-decoration: none;
-    margin-right: 20px;
+.avatar-section {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    margin-top: -35px;
 }
 
+.header-custom-medium {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.card {
+    background-color: rgb(254, 247, 245);
+    border: none;
+}
+
+.card-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.card-description {
+}
+
+.custom-tag {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    padding: 1px 12px;
+}
+
+.tag-light-green {
+    background: #56F282;
+}
+
+.tag-dark-blue {
+    background: #00B5FF;
+}
+
+.tag-red {
+    background: #FF5161;
+}
+
+.tag-dark-green {
+    background: #00AFA3;
+}
+
+.tag-yellow {
+    background: #F2C94C;
+}
+
+.tag-neutral {
+}
+
+.btn-custom-primary {
+}
+
+.btn {
+    padding: 0.375rem 1.35rem;
+}
+
+.btn-custom-neutral {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 2px 0px #000000;
+    border-radius: 6px;
+}
+
+.btn-custom-text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+}
 
