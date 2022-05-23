@@ -1,37 +1,51 @@
 /* Navigation BAR*/
 
 @font-face {
-    src: url('/../assets/fonts/Oswald.ttf');
-    font-family: 'Oswald';
+    src: url('/../assets/fonts/RobotoMono.ttf');
+    font-family: 'Roboto Mono';
+    font-style: normal;
+}
+
+@font-face {
+    src: url('/../assets/fonts/BebasNeue.ttf');
+    font-family: 'Bebas Neue';
+    font-style: normal;
+}
+
+@font-face {
+    src: url('/../assets/fonts/Inter.ttf');
+    font-family: 'Inter';
     font-style: normal;
 }
 
 body{
-    font-family: "Lucida Grande";
+    font-family: "Roboto Mono";
+    color: #2B2B2B;
+    background-color: rgb(254,247,245);
 }
 
-.navbar {
-    padding: 20px 0 20px 0;
-    background-color: rgb(239,254,255);
+.navbar-custom {
+background-color: #FFFFFF;
+    padding: 30px 0px;
+    background-color: #FFFFFF;
 }
 
-.navbar a {
-    color: #1a1e21;
-    font-weight: 400;
-    font-size: 16px;
-    margin-right: 20px;
-}
-
-.navbar a:hover {
-    color: #1a1e21;
-    font-weight: 400;
-    font-size: 16px;
-    margin-right: 20px;
-}
-
-.navbar .title {
+.navbar-custom a {
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 17px;
+    color: #111111;
+    margin-right: 25px;
+    opacity: 0.7;
+}
+
+.navbar-custom .title {
+    /*font-weight: 500;*/
+    font-size: 26px;
+    font-family: "Bebas Neue";
     text-decoration: none;
 }
 

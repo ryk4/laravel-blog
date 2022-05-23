@@ -22,80 +22,86 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md">
-        <div class="container">
-            <a class="title" href="{{ url('/design') }}">
+    <nav class="navbar-custom row">
+            <a class="col-3 title text-center" href="{{ url('/design') }}">
                 average-developer.com
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon">LOL</span>
-            </button>
+{{--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"--}}
+{{--                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"--}}
+{{--                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
+{{--                <span class="navbar-toggler-icon">LOL</span>--}}
+{{--            </button>--}}
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="col-6 text-center" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
+{{--                <ul class="navbar-nav me-auto">--}}
 
-                </ul>
+{{--                </ul>--}}
+
+                <span class="nav-item">
+                    <a  href="#">Blogs</a>
+                </span>
+                <span class="nav-item">
+                    <a href="#">Twitter</a>
+                </span>
+                <span class="nav-item">
+                    <a href="#">Github</a>
+                </span>
+                <span class="nav-item">
+                    <a href="#">Contact us</a>
+                </span>
+
+
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto">
-                    <!-- Authentication Links -->
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @endif
+{{--                <ul class="navbar-nav">--}}
+{{--                    <!-- Authentication Links -->--}}
+{{--                    @guest--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="#">Blogs</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="#">Twitter</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="#">Github</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="#">About me</a>--}}
+{{--                        </li>--}}
+{{--                    @else--}}
+{{--                        <li class="nav-item dropdown">--}}
+{{--                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"--}}
+{{--                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
+{{--                                {{ Auth::user()->name }}--}}
+{{--                            </a>--}}
+{{--                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">--}}
+{{--                                <a class="dropdown-item" href="{{ route('logout') }}"--}}
+{{--                                   onclick="event.preventDefault();--}}
+{{--                                                     document.getElementById('logout-form').submit();">--}}
+{{--                                    {{ __('Logout') }}--}}
+{{--                                </a>--}}
 
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Info</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About me</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-custom-primary fw-bold" href="#">Contact Us</a>
-                        </li>
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
-                </ul>
+{{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
+{{--                                    @csrf--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                    @endguest--}}
+{{--                </ul>--}}
             </div>
-        </div>
     </nav>
-    <div class="title-area">
-        <div class="row">
-            <div class="col-4 offset-4 text-center mb-3">
-                <h3 class="title-area-heading">Your blog title here</h3>
-            </div>
-            <div class="col-4 offset-4 text-center">
-                <p class="title-area-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu augue in dolor sodales ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu augue in dolor sodales ultrices.</p>
-            </div>
-        </div>
-    </div>
+    <br><br>
+{{--    <div class="title-area">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-4 offset-4 text-center mb-3">--}}
+{{--                <h3 class="title-area-heading">Your blog title hereee</h3>--}}
+{{--            </div>--}}
+{{--            <div class="col-4 offset-4 text-center">--}}
+{{--                <p class="title-area-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu augue in dolor sodales ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu augue in dolor sodales ultrices.</p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <main class="py-4">
         @yield('content')
