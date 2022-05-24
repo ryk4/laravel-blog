@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('blogs.index');
 });
-
-//Auth::routes();
 
 Auth::routes([
     'register' => false
 ]);
 
+Route::middleware(['auth'])->group(function () {
+    Route::resource('blogs', \App\Http\Controllers\BlogController::class)->only(['create','update','delete','store']);
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/design', [App\Http\Controllers\Testcontroller::class, 'design'])->name('design');
+Route::resource('blogs', \App\Http\Controllers\BlogController::class)->only(['index','show']);
