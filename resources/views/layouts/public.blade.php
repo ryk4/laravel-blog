@@ -31,9 +31,6 @@
                     <a  href="#">Blogs</a>
                 </span>
                 <span class="nav-item">
-                    <a href="#">Youtube (coming soon)</a>
-                </span>
-                <span class="nav-item">
                     <a href="#">Github</a>
                 </span>
                 <span class="nav-item">
