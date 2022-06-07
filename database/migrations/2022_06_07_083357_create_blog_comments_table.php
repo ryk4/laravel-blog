@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('website')->nullable();
+            $table->string('image')->nullable();
             $table->string('comment');
             $table->integer('votes');
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
