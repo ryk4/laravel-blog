@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +20,11 @@ Route::get('/', function () {
 });
 
 Auth::routes([
-    'register' => false
+    'register' => false,
 ]);
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('blogs', \App\Http\Controllers\BlogController::class)->only(['create','update','delete','store']);
+    Route::resource('blogs', BlogController::class)->only(['create', 'update', 'delete', 'store']);
 });
 
-Route::resource('blogs', \App\Http\Controllers\BlogController::class)->only(['index','show']);
+Route::resource('blogs', BlogController::class)->only(['index', 'show']);

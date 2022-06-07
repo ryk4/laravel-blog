@@ -4,13 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9">
-                <div class="mb-0 mx-3">
-                    <img src="assets/images/bg-img.png" class="card-img-top">
-                </div>
                 <div class="mb-0 row justify-content-center">
-                    <div class="col-12 text-center avatar-section">
-                        <img src="assets/images/img-avatar.png" class="card-img-top">
-                    </div>
                     <div class="col-12 text-center text-custom-title">
                         Create screen
                     </div>
