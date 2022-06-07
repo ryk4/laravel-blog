@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class BlogSeeder extends Seeder
 {
@@ -14,6 +15,15 @@ class BlogSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('blogs')->insert([
+            'id' => 1,
+            'title' => 'My first ever Laravel guide',
+            'tip' => 'This guide concentrates on selft development rather than using some copy paste stuff.',
+            'summary' => 'This topix cover some very simple guide opnm how to asd lasd authentication and some otherlea. ',
+            'image' => '/some-url/',
+            'description' => 'actual blog data goes here? depending on WYSIWYG editor ',
+            'author' => 1,
+            'verified' => 1
+        ]);
     }
 }

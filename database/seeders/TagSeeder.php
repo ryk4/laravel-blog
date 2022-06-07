@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class TagSeeder extends Seeder
 {
@@ -14,6 +17,22 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('tags')->insert([
+            'id' => 1,
+            'name' => 'Laravel',
+            'style_class' => 'tag-light-green',
+        ]);
+
+        DB::table('tags')->insert([
+            'id' => 2,
+            'name' => 'Vue',
+            'style_class' => 'tag-dark-blue',
+        ]);
+
+        DB::table('tags')->insert([
+            'id' => 3,
+            'name' => 'Vuex',
+            'style_class' => 'tag-red',
+        ]);
     }
 }

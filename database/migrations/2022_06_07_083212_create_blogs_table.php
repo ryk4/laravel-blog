@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('title');
             $table->string('tip')->nullable();
             $table->string('summary');
+            $table->string('image')->nullable();
             $table->text('description');
             $table->foreignId('author')->constrained('users');
             $table->string('verified')->default(0);
