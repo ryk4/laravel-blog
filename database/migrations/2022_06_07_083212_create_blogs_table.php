@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('summary');
             $table->string('image')->nullable();
             $table->text('description');
-            $table->foreignId('author')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('verified')->default(0);
             $table->timestamps();
         });

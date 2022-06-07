@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::with('tags')->paginate(16);
 
         return view('blog.index', compact('blogs'));
     }
@@ -34,12 +34,12 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Blog $blog
+     * @param Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function show(Blog $blog)
     {
-        //
+        return view('blog.show', compact('blog'));
     }
 
     /**

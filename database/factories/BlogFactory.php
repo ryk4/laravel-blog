@@ -19,7 +19,7 @@ class BlogFactory extends Factory
             'tip' => $this->faker->sentence(3),
             'summary' => $this->faker->sentence(rand(8, 13)),
             'description' => $this->faker->sentence(3),
-            'author' => User::all()->first(),
+            'user_id' => User::all()->first(),
             'verified' => $this->faker->numberBetween(0, 1),
         ];
     }

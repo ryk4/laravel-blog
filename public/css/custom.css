@@ -58,11 +58,27 @@ body {
     margin-top: 35px;
 }
 
+.text-custom-title-big {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+}
+
 .text-custom-small {
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
     line-height: 24px;
+}
+
+.text-custom-author{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 27px;
+    text-decoration-line: underline;
+    color: #4F4F4F;
 }
 
 .avatar-section {
@@ -127,6 +143,7 @@ body {
 }
 
 .tag-neutral {
+    background-color: #FFFFFF;
 }
 
 .btn-custom-primary {
