@@ -15,12 +15,12 @@ class BlogFactory extends Factory
     public function definition()
     {
         return [
-            'title'       => $this->faker->title(),
-            'tip'         => $this->faker->sentence(3),
-            'summary'     => $this->faker->sentence(random_int(10, 20)),
+            'title' => $this->faker->sentence(rand(3, 6)),
+            'tip' => $this->faker->sentence(3),
+            'summary' => $this->faker->sentence(rand(8, 13)),
             'description' => $this->faker->sentence(3),
-            'author'      => User::all()->first(),
-            'verified'    => $this->faker->numberBetween(0, 1),
+            'author' => User::all()->first(),
+            'verified' => $this->faker->numberBetween(0, 1),
         ];
     }
 }
