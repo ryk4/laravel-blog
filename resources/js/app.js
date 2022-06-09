@@ -2,7 +2,7 @@ require('./bootstrap');
 
 import { createApp } from 'vue';
 
-import BlogCreateEditor from './components/Blog/BlogCreateEditor';
+import BlogCreateEditor from './components/blog/BlogCreateEditor';
 
 createApp({
     components: {

@@ -35,7 +35,7 @@
                     </div>
                     <blog-create-editor></blog-create-editor>
                 </div>
-                <div class="">
+                <div class="container mt-5">
                     <button type="submit" class="btn btn-custom-neutral">Save</button>
                     <button type="submit" class="btn btn-custom-primary">Post blog</button>
                     <div
