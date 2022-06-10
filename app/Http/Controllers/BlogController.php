@@ -28,7 +28,7 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
