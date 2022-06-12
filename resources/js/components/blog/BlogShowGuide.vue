@@ -8,28 +8,31 @@
 <script>
 import {QuillEditor} from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import '@vueup/vue-quill/dist/vue-quill.bubble.css';
 
 export default {
     components: {
         QuillEditor
     },
-    name: "BlogCreateEditor",
-    props: ['old'],
+    name: "BlogShowGuide",
+    props: ['guide'],
     data: function () {
         return {
             content: '',
             options: {
                 contentType: 'html',
-                placeholder: 'Start writing blog...',
-                readOnly: false,
-                theme: 'snow',
+                readOnly: true,
+                theme: 'bubble',
             }
         }
     },
     methods: {
         setOldValues() {
-            if (this.old) {
-                this.content = this.old;
+            console.log('getting initial values');
+            console.log(this.guide);
+
+            if (this.guide) {
+                this.content = this.guide;
             }
         }
     },

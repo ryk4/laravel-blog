@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
             BlogTagSeeder::class
         ]);
 
-        Blog::factory(10)->create();
+//        Blog::factory(10)->create();
     }
 }

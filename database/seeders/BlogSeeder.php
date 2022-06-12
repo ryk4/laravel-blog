@@ -21,7 +21,7 @@ class BlogSeeder extends Seeder
             'tip' => 'This guide concentrates on selft development rather than using some copy paste stuff.',
             'summary' => 'This topix cover some very simple guide opnm how to asd lasd authentication and some otherlea. ',
             'image' => '/some-url/',
-            'description' => 'actual blog data goes here? depending on WYSIWYG editor ',
+            'guide' => 'actual blog data goes here? depending on WYSIWYG editor ',
             'user_id' => 1,
             'verified' => 1,
             'created_at' => now(),

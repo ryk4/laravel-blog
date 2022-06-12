@@ -120,6 +120,7 @@ body {
     border: 1px solid #000000;
     border-radius: 6px;
     padding: 1px 12px;
+    margin-right: 7px;
 }
 
 .tag-light-green {
@@ -175,5 +176,14 @@ body {
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
+}
+
+/* <pre></pre> For code blocks */
+
+pre {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 10px 20px;
 }
 

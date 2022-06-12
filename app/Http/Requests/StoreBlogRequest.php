@@ -24,7 +24,11 @@ class StoreBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'tip' => '',
+            'summary' => 'required',
+            'image' => '',
+            'guide' => 'required'
         ];
     }
 }

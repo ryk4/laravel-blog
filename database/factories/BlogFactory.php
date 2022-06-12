@@ -18,7 +18,7 @@ class BlogFactory extends Factory
             'title' => $this->faker->sentence(rand(3, 6)),
             'tip' => $this->faker->sentence(3),
             'summary' => $this->faker->sentence(rand(8, 13)),
-            'description' => $this->faker->sentence(3),
+            'guide' => $this->faker->sentence(3),
             'user_id' => User::all()->first(),
             'verified' => $this->faker->numberBetween(0, 1),
         ];

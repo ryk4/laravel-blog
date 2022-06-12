@@ -28,7 +28,14 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        dd($request->all());
+        auth()->user()->blogs()->create([
+            'title' => $request->title,
+            'tip' => $request->tip,
+            'summary' => $request->summary,
+            'guide' => $request->guide
+        ]);
+
+        return redirect()->route('blogs.index');
     }
 
     /**

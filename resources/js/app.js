@@ -1,11 +1,13 @@
 require('./bootstrap');
 
-import { createApp } from 'vue';
+import {createApp} from 'vue';
 
 import BlogCreateEditor from './components/blog/BlogCreateEditor';
+import BlogShowGuide from './components/blog/BlogShowGuide';
 
 createApp({
     components: {
-        BlogCreateEditor
+        BlogCreateEditor,
+        BlogShowGuide
     }
 }).mount('#app')

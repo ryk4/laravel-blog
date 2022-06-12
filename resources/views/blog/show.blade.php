@@ -33,6 +33,11 @@
                 <div class="mb-0 mt-3 mx-3 header-custom-medium">
                     <span>Blogs</span>
                 </div>
+
+                <div class="mb-0 mt-3 mx-3">
+                    <div class="">{!! $blog->guide !!}</div>
+{{--                    <blog-show-guide guide="{{ $blog->guide }}"></blog-show-guide>--}}
+                </div>
             </div>
         </div>
     </div>
