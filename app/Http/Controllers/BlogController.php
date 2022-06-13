@@ -5,13 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Blog;
+use App\Services\BlogService;
 use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
+    public function __construct()
+    {
+        $this->service = new BlogService();
+    }
+
     public function index()
     {
-        $blogs = Blog::with('tags')->paginate(16);
+        $blogs = $this->service->fetchBlogs();
 
         return view('blog.index', compact('blogs'));
     }
@@ -29,20 +35,7 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        $blog = auth()->user()->blogs()->create([
-            'title' => $request->title,
-            'tip' => $request->tip,
-            'summary' => $request->summary,
-            'guide' => $request->guide
-        ]);
-
-        if ($request->tags) {
-            $tags = Str::of($request->tags)->explode(',');
-
-            foreach ($tags as $tag) {
-                $blog->tags()->attach($tag);
-            }
-        }
+        $this->service->createBlog($request);
 
         return redirect()->route('blogs.index');
     }
@@ -66,7 +59,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        return redirect()->route('blogs.index');
+        return view('blog.edit', compact('blog'));
     }
 
     /**
@@ -76,7 +69,7 @@ class BlogController extends Controller
      * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBlogRequest $request, Blog $blog)
+    public function update(StoreBlogRequest $request, Blog $blog)
     {
         //
     }
@@ -90,5 +83,10 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         //
+    }
+
+    public function manage()
+    {
+
     }
 }

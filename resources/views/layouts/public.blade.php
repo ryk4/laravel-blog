@@ -24,7 +24,7 @@
 <div id="app">
     <nav class="navbar-custom row">
         <a class="col-12 col-md-3 title text-center" href="{{ route('blogs.index') }}">
-            average-developer.com
+            local-developer.com
         </a>
         <div class="col-12 col-md-6 text-center" id="navbarSupportedContent">
                 <span class="nav-item">

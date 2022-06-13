@@ -24,7 +24,7 @@ Auth::routes([
 ]);
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('blogs', BlogController::class)->only(['create', 'update', 'delete', 'store']);
+    Route::resource('blogs', BlogController::class)->only(['create','edit', 'update', 'delete', 'store']);
 });
 
 Route::resource('blogs', BlogController::class)->only(['index', 'show']);

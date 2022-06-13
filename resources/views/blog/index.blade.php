@@ -12,7 +12,7 @@
                         <img src="assets/images/img-avatar.png" class="card-img-top">
                     </div>
                     <div class="col-12 text-center text-custom-title">
-                        Average Developer
+                        Rytis Klimavičius
                     </div>
                 </div>
                 <div class="mb-0 mt-2 row justify-content-center">

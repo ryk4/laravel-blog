@@ -13,6 +13,7 @@
                 </div>
             @endif
             <form class="col-md-9" action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
+                @method('POST')
                 @csrf
 
                 <div class="row mt-1">
@@ -47,9 +48,8 @@
                     </div>
                     <blog-create-editor old="{{ old('guide') }}"></blog-create-editor>
                 </div>
-                <div class="container mt-5">
-                    <button class="btn btn-custom-neutral">Save</button>
-                    <button type="submit" class="btn btn-custom-primary">Post blog</button>
+                <div class="container mt-5 text-center">
+                    <button type="submit" class="btn btn-custom-primary mx-2">Post blog</button>
                     <div
                         class="d-flex align-items-center justify-content-center text-center mt-5 mb-2 text-muted text-sm">
                         <i class="bi bi-lock me-2"></i>
