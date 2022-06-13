@@ -16,7 +16,7 @@
                                 <span class="custom-tag {{ $tag->style_class }}">{{ $tag->name }}</span>
                             @endforeach
                         </div>
-                        <div class="row">
+                        <div class="row mt-2">
                             <div class="col-8 text-custom-author"><img src="/assets/images/img-avatar.png"
                                                                        style="width: 34px;height: 34px;"
                                                                        class="me-2">{{ $blog->user->name }}
@@ -36,7 +36,7 @@
 
                 <div class="mb-0 mt-3 mx-3">
                     <div class="">{!! $blog->guide !!}</div>
-{{--                    <blog-show-guide guide="{{ $blog->guide }}"></blog-show-guide>--}}
+                    {{--                    <blog-show-guide guide="{{ $blog->guide }}"></blog-show-guide>--}}
                 </div>
             </div>
         </div>

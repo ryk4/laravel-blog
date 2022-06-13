@@ -16,16 +16,10 @@
                 @csrf
 
                 <div class="row mt-1">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="">
                             <label class="form-label" for="title">Title</label>
                             <input class="form-control" id="title" name="title" value="{{ old('title') }}">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="">
-                            <label class="form-label" for="title">Tags</label>
-                            <input class="form-control" id="title" name="tags" value="{{ old('title') }}">
                         </div>
                     </div>
                     <div class="col-md-12 my-2">

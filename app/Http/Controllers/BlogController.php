@@ -57,7 +57,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return redirect()->route('blogs.index');
     }
 
     /**
