@@ -19,8 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::middleware(['auth:sanctum'])->group(function () {
-Route::resource('tags', TagController::class);
-//    Route::post('tasks/order',[\App\Http\Controllers\Api\TaskController::class, 'order'])->name('tasks.order');
-//    Route::resource('tags', \App\Http\Controllers\api\TagController::class);
-//});
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::resource('tags', TagController::class);
+});
