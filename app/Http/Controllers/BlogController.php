@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Blog;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -28,12 +29,20 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        auth()->user()->blogs()->create([
+        $blog = auth()->user()->blogs()->create([
             'title' => $request->title,
             'tip' => $request->tip,
             'summary' => $request->summary,
             'guide' => $request->guide
         ]);
+
+        if ($request->tags) {
+            $tags = Str::of($request->tags)->explode(',');
+
+            foreach ($tags as $tag) {
+                $blog->tags()->attach($tag);
+            }
+        }
 
         return redirect()->route('blogs.index');
     }

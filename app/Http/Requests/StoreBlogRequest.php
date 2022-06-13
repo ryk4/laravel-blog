@@ -28,7 +28,8 @@ class StoreBlogRequest extends FormRequest
             'tip' => '',
             'summary' => 'required',
             'image' => '',
-            'guide' => 'required'
+            'guide' => 'required',
+            'tags' => ''
         ];
     }
 }

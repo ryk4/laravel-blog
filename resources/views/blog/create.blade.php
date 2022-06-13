@@ -25,7 +25,7 @@
                     <div class="col-md-6">
                         <div class="">
                             <label class="form-label" for="title">Tags</label>
-                            <input class="form-control" id="title" name="tags" value="{{ old('title') }}">
+                            <blog-create-select2></blog-create-select2>
                         </div>
                     </div>
                     <div class="col-md-12 my-2">
@@ -39,12 +39,6 @@
                             <label class="form-label" for="summary">Summary</label>
                             <textarea class="form-control" id="summary" name="summary" rows="3"
                                       value="{{ old('summary') }}"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12 my-2">
-                        <div class="">
-                            <label class="form-label" for="Tags">Tags</label>
-                            <input class="form-control" id="Tags">
                         </div>
                     </div>
                     <div class="col-md-12 my-2">
