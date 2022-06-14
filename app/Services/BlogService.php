@@ -9,9 +9,9 @@ use Illuminate\Support\Str;
 
 class BlogService
 {
-    public function fetchBlogs(): AbstractPaginator
+    public function fetchPaginatedBlogs(int $paginate = 16): AbstractPaginator
     {
-        return Blog::with('tags')->paginate(16);
+        return Blog::with('tags')->paginate($paginate);
     }
 
     public function createBlog(Request $request): Blog
@@ -34,8 +34,26 @@ class BlogService
         return $blog;
     }
 
-    public function updateBlog(Blog $blog, Request $request)
+    public function updateBlog(Request $request, Blog $blog)
     {
+        $blog->update([
+            'title' => $request->title,
+            'tip' => $request->tip,
+            'summary' => $request->summary,
+            'guide' => $request->guide
+        ]);
+
+        $blog->tags()->detach();
+
+        if ($request->tags) {
+            $tags = Str::of($request->tags)->explode(',');
+
+            foreach ($tags as $tag) {
+                $blog->tags()->attach($tag);
+            }
+        }
+
+        return $blog;
     }
 
     public function deleteBlog(Blog $blog)

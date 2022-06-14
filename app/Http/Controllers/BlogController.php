@@ -17,7 +17,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = $this->service->fetchBlogs();
+        $blogs = $this->service->fetchPaginatedBlogs();
 
         return view('blog.index', compact('blogs'));
     }
@@ -71,7 +71,9 @@ class BlogController extends Controller
      */
     public function update(StoreBlogRequest $request, Blog $blog)
     {
-        //
+        $this->service->updateBlog($request, $blog);
+
+        return redirect()->route('blogs.index');
     }
 
     /**
@@ -87,6 +89,8 @@ class BlogController extends Controller
 
     public function manage()
     {
+        $blogs = $this->service->fetchPaginatedBlogs(20);
 
+        return view('blog.manage', compact('blogs'));
     }
 }

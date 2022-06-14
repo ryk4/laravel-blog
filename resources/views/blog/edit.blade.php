@@ -50,13 +50,8 @@
                     </div>
                     <blog-create-editor old="{{ old('guide') ?? $blog->guide }}"></blog-create-editor>
                 </div>
-                <div class="container mt-5 text-center">
+                <div class="container mt-5 mb-5 text-center">
                     <button type="submit" class="btn btn-custom-warning mx-2">Update blog</button>
-                    <button type="submit" class="btn btn-custom-danger mx-2">Delete</button>
-                    <div
-                        class="d-flex align-items-center justify-content-center text-center mt-5 mb-2 text-muted text-sm">
-                        <i class="bi bi-lock me-2"></i>
-                    </div>
                 </div>
             </form>
         </div>
