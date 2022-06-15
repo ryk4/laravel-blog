@@ -23,9 +23,12 @@ Auth::routes([
     'register' => false,
 ]);
 
+Route::resource('blogs', BlogController::class)->only(['index', 'show']);
+
 Route::middleware(['auth'])->group(function () {
-    Route::resource('blogs', BlogController::class)->only(['create', 'edit', 'update', 'delete', 'store']);
-    Route::get('/manage', [BlogController::class, 'manage'])->name('blogs.manage');
+//    Route::resource('blogs', BlogController::class)->only(['create', 'edit', 'update', 'delete', 'store']);
 });
 
-Route::resource('blogs', BlogController::class)->only(['index', 'show']);
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
+    Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
+});

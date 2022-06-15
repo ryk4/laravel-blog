@@ -12,7 +12,7 @@
                     </ul>
                 </div>
             @endif
-            <form class="col-md-9" action="{{ route('blogs.update',$blog) }}" method="POST"
+            <form class="col-md-9" action="{{ route('admin.blogs.update',$blog) }}" method="POST"
                   enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
@@ -28,7 +28,7 @@
                     <div class="col-md-6">
                         <div class="">
                             <label class="form-label" for="title">Tags</label>
-                            <blog-create-select2></blog-create-select2>
+                            <blog-create-select2 :old="{{ json_encode($blog->tags) }}"></blog-create-select2>
                         </div>
                     </div>
                     <div class="col-md-12 my-2">

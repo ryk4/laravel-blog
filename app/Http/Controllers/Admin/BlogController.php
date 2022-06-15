@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogRequest;
-use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Blog;
 use App\Services\BlogService;
-use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -15,13 +15,23 @@ class BlogController extends Controller
         $this->service = new BlogService();
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $blogs = $this->service->fetchPaginatedBlogs();
+        $blogs = $this->service->fetchPaginatedBlogs(20);
 
-        return view('blog.index', compact('blogs'));
+        return view('admin.blog.index', compact('blogs'));
     }
 
+    /**
+     * Create blog
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         return view('admin.blog.create');
@@ -37,7 +47,7 @@ class BlogController extends Controller
     {
         $this->service->createBlog($request);
 
-        return redirect()->route('admin.blogs.index');
+        return redirect()->route('blogs.index');
     }
 
     /**
@@ -48,7 +58,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-
+        return view('blog.show', compact('blog'));
     }
 
     /**

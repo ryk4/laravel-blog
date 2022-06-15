@@ -38,7 +38,7 @@
                 </span>
             @auth
                 <span class="nav-item">
-                    <a href="{{ route('blogs.manage') }}">Manage blogs</a>
+                    <a href="{{ route('admin.blogs.index') }}">Manage blogs</a>
                 </span>
             @endauth
         </div>

@@ -5,6 +5,7 @@
                  multiple="multiple"
         />
         <input type="hidden" name="tags" :value="tags"/>
+        <button @click.prevent="test">test</button>
     </div>
 </template>
 
@@ -13,6 +14,9 @@ import Select2 from 'vue3-select2-component';
 
 export default {
     name: "BlogCreateSelect2",
+    props: {
+        old: Array
+    },
     components: {Select2},
     data() {
         return {
@@ -21,6 +25,9 @@ export default {
         }
     },
     methods: {
+        test() {
+            console.log(this.tags);
+        },
         getAllAvailableTags() {
             axios.get('/api/tags').then(res => {
                 res.data.data.map(tag => {
@@ -28,10 +35,16 @@ export default {
                     this.availableTags.push(tag);
                 });
             });
+        },
+        setOldValues() {
+            if (this.old) {
+                this.tags = this.old.map(tag => tag.id);
+            }
         }
     },
     created() {
         this.getAllAvailableTags();
+        this.setOldValues();
     }
 }
 </script>
