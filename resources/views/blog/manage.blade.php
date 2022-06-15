@@ -34,7 +34,8 @@
                                 <td>
                                     <a href="{{ route('blogs.edit',$blog) }}" class="btn btn-custom-warning mx-1"><span
                                             class="btn-custom-text">Edit</span></a>
-                                    <a href="#" class="btn btn-custom-danger mx-1"><span
+                                    <a onclick="testSwal({{ $blog->id }})" href="#"
+                                       class="btn btn-custom-danger mx-1"><span
                                             class="btn-custom-text">Delete</span></a>
                                 </td>
                             </tr>
@@ -47,4 +48,22 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        console.log('printing form jS');
+
+        function testSwal($blog) {
+            console.log($blog);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Do you want to continue',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+        }
+
+
+    </script>
 @endsection

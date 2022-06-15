@@ -107,3 +107,5 @@
 </div>
 </body>
 </html>
+
+@yield('scripts')

@@ -23,6 +23,7 @@
     "dependencies": {
         "@vueup/vue-quill": "^1.0.0-beta.8",
         "quill-blot-formatter": "^1.0.5",
+        "sweetalert2": "^11.4.17",
         "vue": "^3.2.36",
         "vue-loader": "^17.0.0",
         "vue-router": "^4.0.13",
