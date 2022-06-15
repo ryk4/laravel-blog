@@ -5,7 +5,6 @@
                  multiple="multiple"
         />
         <input type="hidden" name="tags" :value="tags"/>
-        <button @click.prevent="test">test</button>
     </div>
 </template>
 
@@ -25,9 +24,6 @@ export default {
         }
     },
     methods: {
-        test() {
-            console.log(this.tags);
-        },
         getAllAvailableTags() {
             axios.get('/api/tags').then(res => {
                 res.data.data.map(tag => {

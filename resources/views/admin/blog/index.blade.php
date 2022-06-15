@@ -33,39 +33,30 @@
                                     @endforeach
                                 </td>
                                 <td>{{ $blog->created_at }}</td>
-                                <td>
-                                    <a href="{{ route('admin.blogs.edit',$blog) }}" class="btn btn-custom-warning mx-1"><span
+                                <td class="">
+                                    <a href="{{ route('admin.blogs.edit',$blog) }}"
+                                       class="btn btn-custom-warning mx-1"><span
                                             class="btn-custom-text">Edit</span></a>
-                                    <a onclick="testSwal({{ $blog->id }})" href="#"
+                                    <a onclick="deleteConfirm('delete-form-{{$blog->id}}')"
                                        class="btn btn-custom-danger mx-1"><span
                                             class="btn-custom-text">Delete</span></a>
+                                    <form class="" id="delete-form-{{$blog->id}}"
+                                          action="{{ route('admin.blogs.destroy',$blog) }}"
+                                          method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
         </div>
     </div>
 @endsection
 
 @section('scripts')
-    <script>
-        console.log('printing form jS');
-
-        function testSwal($blog) {
-            console.log($blog);
-            Swal.fire({
-                title: 'Error!',
-                text: 'Do you want to continue',
-                icon: 'error',
-                confirmButtonText: 'Cool'
-            })
-        }
-
-
-    </script>
+    <script></script>
 @endsection

@@ -34,7 +34,7 @@ class BlogService
         return $blog;
     }
 
-    public function updateBlog(Request $request, Blog $blog)
+    public function updateBlog(Request $request, Blog $blog): Blog
     {
         $blog->update([
             'title' => $request->title,
@@ -56,7 +56,8 @@ class BlogService
         return $blog;
     }
 
-    public function deleteBlog(Blog $blog)
+    public function deleteBlog(Blog $blog): void
     {
+        $blog->delete();
     }
 }

@@ -108,4 +108,44 @@
 </body>
 </html>
 
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let successSatus = {!! json_encode(session('successStatus')) !!};
+
+        if (successSatus !== null) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: false,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                icon: 'success',
+                title: successSatus
+            })
+        }
+    });
+
+    window.deleteConfirm = function (formId) {
+        Swal.fire({
+            icon: 'warning',
+            text: 'Are you sure you want to delete this?',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            confirmButtonColor: '#e3342f',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(formId).submit();
+            }
+        });
+    }
+
+</script>
+
 @yield('scripts')

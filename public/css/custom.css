@@ -186,6 +186,17 @@ body {
     line-height: 18px;
 }
 
+.custom-blog-tip{
+    background: rgba(218, 221, 64, 0.2);
+    border: 1px solid #000000;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+}
+
 /* <pre></pre> For code blocks */
 
 pre {
@@ -194,4 +205,5 @@ pre {
     display: block;
     padding: 10px 20px;
 }
+
 

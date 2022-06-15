@@ -47,19 +47,10 @@ class BlogController extends Controller
     {
         $this->service->createBlog($request);
 
-        return redirect()->route('blogs.index');
+        return redirect()->route('blogs.index')
+            ->with('successStatus', 'Blog created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Blog $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Blog $blog)
-    {
-        return view('blog.show', compact('blog'));
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -83,7 +74,8 @@ class BlogController extends Controller
     {
         $this->service->updateBlog($request, $blog);
 
-        return redirect()->route('admin.blogs.index');
+        return redirect()->route('admin.blogs.index')
+            ->with('successStatus', 'Blog updated');
     }
 
     /**
@@ -94,6 +86,9 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $this->service->deleteBlog($blog);
+
+        return redirect()->route('admin.blogs.index')
+            ->with('successStatus', 'Blog deleted');
     }
 }

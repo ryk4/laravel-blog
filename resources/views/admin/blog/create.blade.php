@@ -12,7 +12,7 @@
                     </ul>
                 </div>
             @endif
-            <form class="col-md-9" action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
+            <form class="col-md-9" action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data">
                 @method('POST')
                 @csrf
 
