@@ -21,8 +21,9 @@
                         interested in any of them,support me and grab them while they are available!!
                     </div>
                 </div>
-                <div class="mb-0 mt-3 mx-3 header-custom-medium">
+                <div class="d-flex justify-content-between mb-2 mt-3 mx-3 header-custom-medium">
                     <span>Blogs</span>
+                    <a href="#" class="btn btn-custom-primary">Subscribe</a>
                 </div>
                 <div class="row mt-4">
                     @foreach($blogs as $blog)

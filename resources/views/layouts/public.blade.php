@@ -27,15 +27,15 @@
             local-developer.com
         </a>
         <div class="col-12 col-md-6 text-center" id="navbarSupportedContent">
-                <span class="nav-item">
-                    <a href="{{ route('blogs.index') }}">Blogs</a>
-                </span>
             <span class="nav-item">
-                    <a href="#">Github</a>
-                </span>
+                <a href="{{ route('blogs.index') }}">Blogs</a>
+            </span>
             <span class="nav-item">
-                    <a href="#">Contact us</a>
-                </span>
+                <a href="#">Github</a>
+            </span>
+            <span class="nav-item">
+                <a href="#">Contact us</a>
+            </span>
             @auth
                 <span class="nav-item">
                     <a href="{{ route('admin.blogs.index') }}">Manage blogs</a>
@@ -99,9 +99,23 @@
 
         <ul class="nav col-12 col-md-4 justify-content-end list-unstyled d-flex">
             <span>Icons...</span>
-            {{--            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>--}}
-            {{--            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>--}}
-            {{--            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>--}}
+            <i class="bi-alarm"></i>
+
+            <li class="ms-3"><a class="text-muted" href="#">
+                    <svg class="bi" width="24" height="24">
+                        <use xlink:href="#twitter"></use>
+                    </svg>
+                </a></li>
+            <li class="ms-3"><a class="text-muted" href="#">
+                    <svg class="bi" width="24" height="24">
+                        <use xlink:href="#instagram"></use>
+                    </svg>
+                </a></li>
+            <li class="ms-3"><a class="text-muted" href="#">
+                    <svg class="bi" width="24" height="24">
+                        <use xlink:href="#facebook"></use>
+                    </svg>
+                </a></li>
         </ul>
     </footer>
 </div>

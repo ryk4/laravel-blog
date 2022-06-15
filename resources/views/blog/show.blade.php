@@ -31,10 +31,13 @@
                     </div>
                 </div>
                 <div class="mt-3">
-                    <span class="custom-blog-tip py-2 px-3">{{ $blog->tip }}</span>
+                    <span class="custom-blog-tip py-2 px-3">
+                        <i class="bi bi-lightbulb" style="font-size: 20px;"></i>
+                        {{ $blog->tip }}
+                    </span>
                 </div>
 
-                <div class="mb-0 mt-5 mx-3">
+                <div class="mb-0 mt-4 mx-3">
                     <div class="">{!! $blog->guide !!}</div>
                     {{--                    <blog-show-guide guide="{{ $blog->guide }}"></blog-show-guide>--}}
                 </div>
