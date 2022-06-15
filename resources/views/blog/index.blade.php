@@ -23,7 +23,7 @@
                 </div>
                 <div class="d-flex justify-content-between mb-2 mt-3 mx-3 header-custom-medium">
                     <span>Blogs</span>
-                    <a href="#" class="btn btn-custom-primary">Subscribe</a>
+                    <a href="#" class="btn btn-custom-subscribe">Subscribe</a>
                 </div>
                 <div class="row mt-4">
                     @foreach($blogs as $blog)

@@ -50,10 +50,6 @@
                 </div>
                 <div class="container mt-5 text-center">
                     <button type="submit" class="btn btn-custom-primary mx-2">Post blog</button>
-                    <div
-                        class="d-flex align-items-center justify-content-center text-center mt-5 mb-2 text-muted text-sm">
-                        <i class="bi bi-lock me-2"></i>
-                    </div>
                 </div>
             </form>
         </div>
