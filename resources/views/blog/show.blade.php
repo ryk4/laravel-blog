@@ -13,7 +13,7 @@
                         </div>
                         <div class="my-2">
                             @foreach($blog->tags as $tag)
-                                <span class="{{ $tag->style_class }}">{{ $tag->name }}</span>
+                                <span class="custom-tag {{ $tag->style_class }}">{{ $tag->name }}</span>
                             @endforeach
                         </div>
                         <div class="row mt-2">
@@ -34,7 +34,7 @@
                     <span class="custom-blog-tip py-2 px-3">{{ $blog->tip }}</span>
                 </div>
 
-                <div class="mb-0 mt-3 mx-3">
+                <div class="mb-0 mt-5 mx-3">
                     <div class="">{!! $blog->guide !!}</div>
                     {{--                    <blog-show-guide guide="{{ $blog->guide }}"></blog-show-guide>--}}
                 </div>
