@@ -17,9 +17,9 @@
                             @endforeach
                         </div>
                         <div class="row mt-2">
-                            <div class="col-8 text-custom-author"><img src="/assets/images/img-avatar.png"
-                                                                       style="width: 34px;height: 34px;"
-                                                                       class="me-2">{{ $blog->user->name }}
+                            <div class="col-8 text-custom-author">
+                                <img src="/assets/images/img-avatar.png" style="width: 34px;height: 34px;"
+                                     class="me-2">{{ $blog->user->name }}
                             </div>
                             <div class="col-4">
                                 <span class="custom-tag tag-neutral">{{ $blog->createdAtReadable() }}</span>
@@ -36,7 +36,6 @@
                         {{ $blog->tip }}
                     </span>
                 </div>
-
                 <div class="mb-0 mt-4 mx-3">
                     <div class="">{!! $blog->guide !!}</div>
                     {{--                    <blog-show-guide guide="{{ $blog->guide }}"></blog-show-guide>--}}

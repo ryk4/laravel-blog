@@ -15,7 +15,6 @@
                     <table class="table mb-5">
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Title</th>
                             <th scope="col">Tags</th>
                             <th scope="col">Created at</th>
@@ -25,7 +24,6 @@
                         <tbody>
                         @foreach($blogs as $blog)
                             <tr>
-                                <th scope="row">1</th>
                                 <td>{{ $blog->title }}</td>
                                 <td>
                                     @foreach($blog->tags as $tag)

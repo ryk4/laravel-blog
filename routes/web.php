@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Admin\TagController;
 
 
 /*
@@ -31,4 +32,5 @@ Route::middleware(['auth'])->group(function () {
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
+    Route::resource('tags', TagController::class);
 });

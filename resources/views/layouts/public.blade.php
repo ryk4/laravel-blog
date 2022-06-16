@@ -40,6 +40,9 @@
                 <span class="nav-item">
                     <a href="{{ route('admin.blogs.index') }}">Manage blogs</a>
                 </span>
+                <span class="nav-item">
+                    <a href="{{ route('admin.tags.index') }}">Manage tags</a>
+                </span>
             @endauth
         </div>
         <div class="col-3 text-end" id="navbarSupportedContent">
