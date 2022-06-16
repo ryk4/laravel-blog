@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Blog;
+use App\Models\BlogComment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,9 +21,19 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             TagSeeder::class,
             BlogSeeder::class,
-            BlogTagSeeder::class
+            BlogTagSeeder::class,
+            CommentSeeder::class
         ]);
 
-//        Blog::factory(10)->create();
+
+//        BlogComment::factory(10)->create();
+
+//        foreach (Blog::all() as $blog){
+//            $blog->comments()->create();
+//        }
+
+        Blog::factory(3)
+            ->has(BlogComment::factory()->count(3),'comments')
+            ->create();
     }
 }

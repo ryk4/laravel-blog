@@ -4,12 +4,12 @@ import {createApp} from 'vue';
 
 import BlogCreateEditor from './components/blog/BlogCreateEditor';
 import BlogCreateSelect2 from './components/blog/BlogCreateSelect2';
-import BlogShowGuide from './components/blog/BlogShowGuide';
+import BlogShowComment from './components/blog/BlogShowComment';
 
 createApp({
     components: {
         BlogCreateEditor,
-        BlogShowGuide,
-        BlogCreateSelect2
+        BlogCreateSelect2,
+        BlogShowComment
     }
 }).mount('#app')

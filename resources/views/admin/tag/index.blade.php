@@ -6,10 +6,6 @@
             <div class="col-md-12">
                 <div class="d-flex justify-content-between mt-3 mb-5">
                     <div class="header-custom-medium">Manage Tags</div>
-                    <div>
-                        <a href="{{ route('admin.blogs.create') }}" class="btn btn-custom-primary mx-1"><span
-                                class="btn-custom-text">Create</span></a>
-                    </div>
                 </div>
                 <div class="">
                     <table class="table mb-5">

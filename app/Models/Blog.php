@@ -24,6 +24,11 @@ class Blog extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(BlogComment::class);
+    }
+
     public function createdAtReadable(): string
     {
         return $this->created_at->format('D, d m Y');

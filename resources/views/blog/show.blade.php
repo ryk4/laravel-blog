@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center mt-5">
-            <div class="col-md-9">
+            <div class="col-md-9 mb-4">
                 <div class="mb-0 mt-2 row">
                     <div class="col-8">
                         <div class="text-custom-title-big">
@@ -36,11 +36,12 @@
                         {{ $blog->tip }}
                     </span>
                 </div>
-                <div class="mb-0 mt-4 mx-3">
+                <div class="mb-0 my-4 mx-3">
                     <div class="">{!! $blog->guide !!}</div>
-                    {{--                    <blog-show-guide guide="{{ $blog->guide }}"></blog-show-guide>--}}
                 </div>
             </div>
+            <blog-show-comment :blog="{{ $blog->id }}"></blog-show-comment>
         </div>
     </div>
 @endsection
+

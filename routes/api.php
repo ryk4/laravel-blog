@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\TagController;
+use App\Http\Controllers\Api\Blog\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('tags', TagController::class);
 });
+
+Route::resource('blogs.comments', CommentController::class);
+
+
+//--------------------------------FOR TESTING PURPOSE--------------------------------
+
+//Route::get('blogs/{blog}/comments',[CommentController::class, 'index'])->name('blogs.index');
+//Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
+//});
+

@@ -193,7 +193,7 @@ body {
     line-height: 18px;
 }
 
-.custom-blog-tip{
+.custom-blog-tip {
     background: rgba(218, 221, 64, 0.2);
     border: 1px solid #000000;
     border-radius: 6px;
@@ -202,6 +202,34 @@ body {
     font-size: 15px;
     line-height: 24px;
     letter-spacing: 0.02em;
+}
+
+.comment-section {
+    background-color: #ffffff;
+    padding: 20px 20px;
+}
+
+.form-control-custom {
+    border: 1px solid #2B2B2B;
+    border-radius: 8px;
+}
+
+.vote-area {
+    background: #F5F6FA;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.vote-link {
+    text-decoration: none;
+    color: #2B2B2B;
+}
+
+.vote-text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
 }
 
 /* <pre></pre> For code blocks */
