@@ -1,7 +1,7 @@
 <template>
     <div v-if="dataLoaded" v-for="comment in this.comments" class="col-md-9 mb-2">
         <div class="comment-section">
-            <div class="row">
+            <div class="row py-2">
                 <!--                <div class="col-md-1">-->
                 <!--                    <div class="vote-area text-center py-2">-->
                 <!--                        <div><a href="#" class="vote-link">+</a></div>-->
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="col-md-9">
-        <div class="comment-section">
+        <div class="comment-section p-2">
             <div class="row">
                 <div class="col-md-4">
                     <label class="form-label" for="title">Display name *</label>
@@ -61,6 +61,7 @@
                     <button type="submit" class="btn btn-custom-neutral w-100 h-100" @click="postComment">Comment
                     </button>
                 </div>
+                <div>is admin: {{ this.isAdmin }}</div>
             </div>
         </div>
     </div>
@@ -68,6 +69,7 @@
 
 <script>
 import BlogService from "../../Services/BlogService";
+
 import {useAuthStore} from "../../store/modules/Auth";
 
 import {createPinia} from 'pinia';
@@ -75,10 +77,6 @@ import {createPinia} from 'pinia';
 const pinia = createPinia()
 
 const authStore = useAuthStore(pinia);
-
-
-// setTimeout(() => {
-// }, 2000)
 
 export default {
     name: "BlogShowComment",
@@ -88,7 +86,7 @@ export default {
             dataLoaded: false,
             comments: [],
             commentCreateForm: {},
-            errors: []
+            errors: [],
         }
     },
     methods: {
@@ -126,10 +124,14 @@ export default {
         this.resetFormFields();
         this.getComments();
 
-        console.log('loading Pinia');
-        console.log(authStore.user.is_admin)
+        authStore.checkIfLoggedInAsAdmin();
     },
     created() {
+    },
+    computed: {
+        isAdmin(){
+            return authStore.user.is_admin;
+        }
     }
 }
 </script>
