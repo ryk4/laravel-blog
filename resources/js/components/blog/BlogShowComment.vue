@@ -67,6 +67,8 @@
 </template>
 
 <script>
+import BlogService from "../../Services/BlogService";
+
 export default {
     name: "BlogShowComment",
     props: ['blog'],
@@ -79,8 +81,9 @@ export default {
         }
     },
     methods: {
-        getComments() {
-            axios.get(`/api/blogs/${this.blog}/comments`).then(res => {
+        async getComments() {
+
+            BlogService.getComments(this.blog).then(res => {
                 this.comments = res.data.data;
                 this.dataLoaded = true;
             });
@@ -93,11 +96,11 @@ export default {
                 'comment': this.commentCreateForm.comment,
             }
 
-            axios.post(`/api/blogs/${this.blog}/comments`, data).then(res => {
+            BlogService.postComment(data, this.blog).then(res => {
                 this.resetFormFields();
                 this.getComments();
-            }).catch(errors => {
-                this.errors = errors.response.data.errors;
+            }).catch(e => {
+                this.errors = e.response.data.errors;
             });
         },
         resetFormFields() {

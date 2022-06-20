@@ -40,7 +40,7 @@
                     <div class="">{!! $blog->guide !!}</div>
                 </div>
             </div>
-            <div>test: {{ auth()->user() }}</div>
+{{--            <div>test: {{ auth()->user() }}</div>--}}
             <blog-show-comment :blog="{{ $blog->id }}"></blog-show-comment>
         </div>
     </div>
