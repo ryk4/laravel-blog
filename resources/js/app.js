@@ -1,6 +1,9 @@
 require('./bootstrap');
 
 import {createApp} from 'vue';
+import {createPinia} from 'pinia';
+
+const pinia = createPinia();
 
 import BlogCreateEditor from './components/blog/BlogCreateEditor';
 import BlogCreateSelect2 from './components/blog/BlogCreateSelect2';
@@ -12,4 +15,4 @@ createApp({
         BlogCreateSelect2,
         BlogShowComment
     }
-}).mount('#app')
+}).use(pinia).mount('#app')

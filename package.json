@@ -23,6 +23,7 @@
     "dependencies": {
         "@vueup/vue-quill": "^1.0.0-beta.8",
         "bootstrap-icons": "^1.8.3",
+        "pinia": "^2.0.0-rc.10",
         "quill-blot-formatter": "^1.0.5",
         "sweetalert2": "^11.4.17",
         "vue": "^3.2.36",

@@ -68,6 +68,17 @@
 
 <script>
 import BlogService from "../../Services/BlogService";
+import {useAuthStore} from "../../store/modules/Auth";
+
+import {createPinia} from 'pinia';
+
+const pinia = createPinia()
+
+const authStore = useAuthStore(pinia);
+
+
+// setTimeout(() => {
+// }, 2000)
 
 export default {
     name: "BlogShowComment",
@@ -82,7 +93,6 @@ export default {
     },
     methods: {
         async getComments() {
-
             BlogService.getComments(this.blog).then(res => {
                 this.comments = res.data.data;
                 this.dataLoaded = true;
@@ -115,6 +125,9 @@ export default {
     mounted() {
         this.resetFormFields();
         this.getComments();
+
+        console.log('loading Pinia');
+        console.log(authStore.user.is_admin)
     },
     created() {
     }
