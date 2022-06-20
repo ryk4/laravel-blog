@@ -18,7 +18,7 @@ class CommentController extends Controller
      */
     public function index(Blog $blog)
     {
-        $comments = $blog->comments;
+        $comments = $blog->comments()->orderByDesc('created_at')->get();
 
         return BlogCommentResource::collection($comments);
     }
@@ -26,18 +26,25 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCommentRequest  $request
+     * @param \App\Http\Requests\StoreCommentRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCommentRequest $request)
+    public function store(StoreCommentRequest $request, Blog $blog)
     {
-        //
+        $comment = $blog->comments()->create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'website' => $request->website,
+            'comment' => $request->comment,
+        ]);
+
+        return new BlogCommentResource($comment);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BlogComment  $comment
+     * @param \App\Models\BlogComment $comment
      * @return \Illuminate\Http\Response
      */
     public function show(BlogComment $comment)
@@ -48,8 +55,8 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCommentRequest  $request
-     * @param  \App\Models\BlogComment  $comment
+     * @param \App\Http\Requests\UpdateCommentRequest $request
+     * @param \App\Models\BlogComment $comment
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateCommentRequest $request, BlogComment $comment)
@@ -60,7 +67,7 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BlogComment  $comment
+     * @param \App\Models\BlogComment $comment
      * @return \Illuminate\Http\Response
      */
     public function destroy(BlogComment $comment)

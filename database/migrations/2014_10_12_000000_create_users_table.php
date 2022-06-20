@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('role')->default(2); // 0-admin, 1-super user,2-normal
+            $table->integer('role')->default(3); // 0-admin, 1-super user,2-blogger, 3-standard
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

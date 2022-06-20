@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('tags', TagController::class);
 });
 
-Route::resource('blogs.comments', CommentController::class);
+Route::resource('blogs.comments', CommentController::class)->only(['store', 'index']);
 
 
 //--------------------------------FOR TESTING PURPOSE--------------------------------
