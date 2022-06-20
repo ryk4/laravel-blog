@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
 //    Route::resource('blogs', BlogController::class)->only(['create', 'edit', 'update', 'delete', 'store']);
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','checkUserLevel:admin']], function () {
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('tags', TagController::class);
 });

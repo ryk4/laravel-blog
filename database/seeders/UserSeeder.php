@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,6 +22,7 @@ class UserSeeder extends Seeder
             'id' => 1,
             'name' => 'Rytis Klimavicius',
             'email' => 'rytis@admin.com',
+            'role' => User::ROLE_ADMIN,
             'password' => Hash::make('Sudas123'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
