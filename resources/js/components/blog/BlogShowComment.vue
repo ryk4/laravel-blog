@@ -13,7 +13,11 @@
                     <div class="d-flex justify-content-between">
                         <div><b>{{ comment.name }}</b> <span class="ms-5 text-muted ">{{ comment.created_at }}</span>
                         </div>
-                        <!--                        <div> Reply</div>-->
+                        <div v-if="isAdmin">
+                            <a @click="deleteComment(comment.id)" class="remove-comment">
+                                <i class="bi bi-x-circle-fill"></i>
+                            </a>
+                        </div>
                     </div>
                     <div class="mt-2">{{ comment.comment }}</div>
                 </div>
@@ -90,7 +94,7 @@ export default {
         }
     },
     methods: {
-        async getComments() {
+        getComments() {
             BlogService.getComments(this.blog).then(res => {
                 this.comments = res.data.data;
                 this.dataLoaded = true;
@@ -106,6 +110,13 @@ export default {
 
             BlogService.postComment(data, this.blog).then(res => {
                 this.resetFormFields();
+                this.getComments();
+            }).catch(e => {
+                this.errors = e.response.data.errors;
+            });
+        },
+        deleteComment(comment) {
+            BlogService.deleteComment(this.blog, comment).then(res => {
                 this.getComments();
             }).catch(e => {
                 this.errors = e.response.data.errors;
@@ -129,7 +140,7 @@ export default {
     created() {
     },
     computed: {
-        isAdmin(){
+        isAdmin() {
             return authStore.user.is_admin;
         }
     }
@@ -137,5 +148,9 @@ export default {
 </script>
 
 <style scoped>
-
+    .remove-comment {
+        text-decoration: none;
+        color: #FF5161;
+        cursor: pointer;
+    }
 </style>

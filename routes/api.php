@@ -16,18 +16,19 @@ use App\Http\Controllers\Api\Blog\CommentController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum', 'checkUserLevel:admin'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum', 'checkUserLevel:admin'])->group(function () {
     Route::resource('tags', TagController::class);
+    Route::resource('blogs.comments', CommentController::class)->only(['destroy']);
 });
 
 Route::resource('blogs.comments', CommentController::class)->only(['store', 'index']);
 
 
-//--------------------------------FOR TESTING PURPOSE--------------------------------
+//--------------------------------FOR TESTING PURPOSES--------------------------------
 
 //Route::get('blogs/{blog}/comments',[CommentController::class, 'index'])->name('blogs.index');
 //Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {

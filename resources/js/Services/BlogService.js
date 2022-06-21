@@ -11,4 +11,7 @@ export default {
     postComment(payload, blog) {
         return authClient.post(`/api/blogs/${blog}/comments`, payload);
     },
+    deleteComment(blog, comment) {
+        return authClient.delete(`/api/blogs/${blog}/comments/${comment}`);
+    }
 };

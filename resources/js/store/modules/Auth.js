@@ -28,7 +28,7 @@ export const useAuthStore = defineStore('auth', {
         // },
     },
     actions:{
-        checkIfLoggedInAsAdmin(state){
+        checkIfLoggedInAsAdmin(){
             axios.get('/api/user').then(res => {
                 this.user.is_admin = true;
             }).catch(e => {
