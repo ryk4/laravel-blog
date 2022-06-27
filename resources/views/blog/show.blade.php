@@ -4,10 +4,13 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center mt-5">
+        <div class="row justify-content-center mt-3">
             <div class="col-md-9 mb-4">
                 <div class="mb-0 mt-2 row">
-                    <div class="col-8">
+                    <div class="col-md-4 col-12 order-md-last mb-3">
+                        <img src="/assets/images/img3.png" class="w-100">
+                    </div>
+                    <div class="col-md-8 order-md-first">
                         <div class="text-custom-title-big">
                             {{ $blog->title }}
                         </div>
@@ -17,24 +20,20 @@
                             @endforeach
                         </div>
                         <div class="row mt-2">
-                            <div class="col-8 text-custom-author">
+                            <div class="col-md-8 col-7 text-custom-author">
                                 <img src="/assets/images/img-avatar.png" style="width: 34px;height: 34px;"
                                      class="me-2">{{ $blog->user->name }}
                             </div>
-                            <div class="col-4">
-                                <span class="custom-tag tag-neutral">{{ $blog->createdAtReadable() }}</span>
+                            <div class="col-md-4 col-5">
+                                <div class="custom-tag tag-neutral mt-1">{{ $blog->createdAtReadable() }}</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <img src="/assets/images/img3.png" class="w-100">
-                    </div>
                 </div>
                 <div class="mt-3">
-                    <span class="custom-blog-tip py-2 px-3">
-                        <i class="bi bi-lightbulb" style="font-size: 20px;"></i>
-                        {{ $blog->tip }}
-                    </span>
+                    <div class="custom-blog-tip py-2 px-3">
+                        <i class="bi bi-lightbulb me-3" style="font-size: 20px;"></i>{{ $blog->tip }}
+                    </div>
                 </div>
                 <div class="mb-0 my-4 mx-3">
                     <div class="">{!! $blog->guide !!}</div>

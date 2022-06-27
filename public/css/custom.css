@@ -121,7 +121,9 @@ body {
     border-radius: 6px;
     padding: 1px 12px;
     margin-right: 7px;
+    white-space: nowrap;
 }
+
 
 .tag-light-green {
     background: #56F282;

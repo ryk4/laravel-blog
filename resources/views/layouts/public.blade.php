@@ -26,7 +26,7 @@
         <a class="col-12 col-md-3 title text-center" href="{{ route('blogs.index') }}">
             local-developer.com
         </a>
-        <div class="col-12 col-md-6 text-center" id="navbarSupportedContent">
+        <div class="col-12 col-md-6 text-center mt-md-0 mt-3" id="navbarSupportedContent">
             <span class="nav-item">
                 <a href="{{ route('blogs.index') }}">Blogs</a>
             </span>
@@ -34,8 +34,55 @@
                 <a href="#">Github</a>
             </span>
             <span class="nav-item">
-                <a href="#">Contact us</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Contact us</a>
             </span>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Get in touch with us</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <div class="row">
+                                <div class="col-12 mb-3 text-muted">
+                                    I would love to have a chat with you about almost anything (I do not like potatos)
+                                    :)
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="name">Full name</label>
+                                    <input type="text" class="form-control form-control-custom"
+                                           id="name" rows="3"
+                                           placeholder="Enter your name"/>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="mobile">Mobile</label>
+                                    <input type="text" class="form-control form-control-custom"
+                                           id="mobile" rows="3"
+                                           placeholder="Enter your mobile"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label mt-3" for="email">Email *</label>
+                                    <input type="email" class="form-control form-control-custom"
+                                           id="comment" rows="3"
+                                           placeholder="Enter your email address" required/>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control form-control-custom mt-3" rows="3"
+                                              placeholder="Ask, recommend or offer anything" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+{{--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
+                            <button type="button" class="btn btn-custom-primary">Send email</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @auth
                 <span class="nav-item">
                     <a href="{{ route('admin.blogs.index') }}">Manage blogs</a>
