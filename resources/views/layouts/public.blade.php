@@ -41,7 +41,10 @@
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                    <form class="modal-content" action="{{ route('email.store') }}" method="POST">
+                        @method('POST')
+                        @csrf
+
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Get in touch with us</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -77,10 +80,10 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-{{--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
-                            <button type="button" class="btn btn-custom-primary">Send email</button>
+                            {{--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
+                            <button type="submit" class="btn btn-custom-primary">Send email</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             @auth

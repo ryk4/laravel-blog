@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Admin\TagController;
-
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +24,9 @@ Auth::routes([
     'register' => false,
 ]);
 
-Route::resource('blogs', BlogController::class)->only(['index', 'show']);
+Route::post('/contact-us', [EmailController::class, 'store'])->name('email.store');
 
-Route::middleware(['auth'])->group(function () {
-//    Route::resource('blogs', BlogController::class)->only(['create', 'edit', 'update', 'delete', 'store']);
-});
+Route::resource('blogs', BlogController::class)->only(['index', 'show']);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','checkUserLevel:admin']], function () {
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
