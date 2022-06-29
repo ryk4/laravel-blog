@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
@@ -15,6 +17,17 @@ class EmailController extends Controller
      */
     public function store(Request $request)
     {
-        dd('sending email');
+        $data = collect([
+            'name' => $request->name ?? 'N/A',
+            'mobile' => $request->mobile ?? 'N/A',
+            'comment' => $request->comment,
+        ]);
+
+        $message = (new ContactUs($data))->onQueue('emails');
+
+        Mail::to($request->email)->queue($message);
+
+        return redirect()->route('blogs.index')
+            ->with('successStatus', 'Email sent');
     }
 }

@@ -6,19 +6,27 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Collection;
 
-class ContactUs extends Mailable
+class ContactUs extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
+
+    public string $name;
+    public string $mobile;
+    public string $comment;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Collection $data)
     {
-        //
+        $this->name = $data->get('name');
+        $this->mobile = $data->get('mobile');
+        $this->comment = $data->get('comment');
     }
 
     /**
@@ -28,6 +36,6 @@ class ContactUs extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('emails.contact_us');
     }
 }

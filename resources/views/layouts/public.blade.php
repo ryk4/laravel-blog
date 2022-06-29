@@ -59,28 +59,31 @@
                                     <label class="form-label" for="name">Full name</label>
                                     <input type="text" class="form-control form-control-custom"
                                            id="name" rows="3"
-                                           placeholder="Enter your name"/>
+                                           placeholder="Enter your name"
+                                           name="name"/>
                                 </div>
                                 <div class="col-6">
                                     <label class="form-label" for="mobile">Mobile</label>
                                     <input type="text" class="form-control form-control-custom"
                                            id="mobile" rows="3"
-                                           placeholder="Enter your mobile"/>
+                                           placeholder="Enter your mobile"
+                                           name="mobile"/>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label mt-3" for="email">Email *</label>
                                     <input type="email" class="form-control form-control-custom"
                                            id="comment" rows="3"
-                                           placeholder="Enter your email address" required/>
+                                           placeholder="Enter your email address"
+                                           name="email" required/>
                                 </div>
                                 <div class="col-12">
                                     <textarea class="form-control form-control-custom mt-3" rows="3"
-                                              placeholder="Ask, recommend or offer anything" required></textarea>
+                                              placeholder="Ask, recommend or offer anything"
+                                              name="comment" required></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            {{--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
                             <button type="submit" class="btn btn-custom-primary">Send email</button>
                         </div>
                     </form>
