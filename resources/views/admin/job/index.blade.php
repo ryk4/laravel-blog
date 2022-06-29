@@ -35,19 +35,31 @@
                             <table class="table mb-5">
                                 <thead>
                                 <tr>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Tags</th>
-                                    <th scope="col">Created at</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Queue</th>
+                                    <th scope="col">Payload</th>
+                                    <th scope="col">Attempts</th>
+                                    <th scope="col">Created_at</th>
+                                    <th scope="col">Attempted_at</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 </tbody>
-
+                                @foreach($jobs as $job)
+                                    <td>{{ $job->id }}</td>
+                                    <td>{{ $job->queue }}</td>
+                                    <td>
+                                        <large-text-popover value="{{ $job->payload }}"></large-text-popover>
+                                    </td>
+                                    <td>{{ $job->attempts }}</td>
+                                    <td>{{ $job->available_at }}</td>
+                                    <td>{{ $job->created_at }}</td>
+                                @endforeach
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
+                         aria-labelledby="pills-profile-tab">
                         <div class="tab-pane fade show" id="pills-home" role="tabpanel"
                              aria-labelledby="pills-home-tab">
 
@@ -55,12 +67,12 @@
                                 <table class="table mb-5">
                                     <thead>
                                     <tr>
-                                        <th scope="col">id</th>
-                                        <th scope="col">uuid</th>
-                                        <th scope="col">queue</th>
-                                        <th scope="col">payload</th>
-                                        <th scope="col">exception</th>
-                                        <th scope="col">failed_at</th>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">UUID</th>
+                                        <th scope="col">Queue</th>
+                                        <th scope="col">Payload</th>
+                                        <th scope="col">Exception</th>
+                                        <th scope="col">Failed_at</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -70,9 +82,11 @@
                                         <td>{{ $job->uuid }}</td>
                                         <td>{{ $job->queue }}</td>
                                         <td>
-                                            <large-text-popover></large-text-popover>
+                                            <large-text-popover value="{{ $job->payload }}"></large-text-popover>
                                         </td>
-                                        <td>View it here</td>
+                                        <td>
+                                            <large-text-popover value="{{ $job->exception }}"></large-text-popover>
+                                        </td>
                                         <td>{{ $job->failed_at }}</td>
                                     @endforeach
                                 </table>

@@ -17,6 +17,7 @@ createApp({
         BlogCreateEditor,
         BlogCreateSelect2,
         BlogShowComment,
-        LargeTextPopover
+        LargeTextPopover,
     }
 }).use(pinia).mount('#app')
+

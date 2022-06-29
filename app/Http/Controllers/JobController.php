@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FailedJob;
+use App\Models\Job;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -15,8 +16,9 @@ class JobController extends Controller
     public function index()
     {
         $failedJobs = FailedJob::all();
+        $jobs = Job::all();
 
-        return view('admin.job.index', compact('failedJobs'));
+        return view('admin.job.index', compact('failedJobs','jobs'));
     }
 
     /**
