@@ -10,6 +10,4 @@ class Job extends Model
     protected $table = 'job';
 
     use HasFactory;
-
-    
 }

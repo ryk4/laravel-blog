@@ -1,7 +1,7 @@
 <template>
     <div>
         <Popper>
-            <button>View</button>
+            <button class="btn btn-custom-neutral py-1">View</button>
             <template #content>
                 <div>{{ this.value }}</div>
             </template>
