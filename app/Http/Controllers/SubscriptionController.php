@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreSubscribeListRequest;
-use App\Http\Requests\UpdateSubscribeListRequest;
+use App\Http\Requests\StoreSubscriptionRequest;
+use App\Mail\NewSubscription;
 use App\Models\Subscription;
+use App\Services\SubscriptionService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class SubscriptionController extends Controller
 {
@@ -25,25 +28,18 @@ class SubscriptionController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\StoreSubscribeListRequest $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(StoreSubscribeListRequest $request)
+    public function store(StoreSubscriptionRequest $request, SubscriptionService $service)
     {
-        Subscription::create([
-            'email'=>$request->email
-        ]);
-
-
+        $service->subscribe($request);
 
         return redirect()->route('blogs.index')
-            ->with('successStatus', 'subscribed');
+            ->with('successStatus', 'You have subscribed');
     }
 
     /**
@@ -68,17 +64,6 @@ class SubscriptionController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \App\Http\Requests\UpdateSubscribeListRequest $request
-     * @param \App\Models\Subscription $subscribeList
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateSubscribeListRequest $request, Subscription $subscribeList)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

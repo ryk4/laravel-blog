@@ -3,6 +3,15 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="col-md-9">
                 <div class="mb-0 mx-3">
                     <img src="assets/images/bg-img.png" class="card-img-top">
@@ -23,7 +32,8 @@
                 </div>
                 <div class="d-flex justify-content-between mb-2 mt-3 mx-3 header-custom-medium">
                     <span>Blogs</span>
-                    <a href="#" class="btn btn-custom-subscribe" data-bs-toggle="modal" data-bs-target="#subscribeModal">Subscribe</a>
+                    <a href="#" class="btn btn-custom-subscribe" data-bs-toggle="modal"
+                       data-bs-target="#subscribeModal">Subscribe</a>
                 </div>
                 <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"
                      aria-hidden="true">
@@ -34,7 +44,8 @@
 
                             <div class="modal-header">
                                 <h5 class="modal-title" id="subscribeModalLabel">Subscribe</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                             </div>
                             <div class="modal-body text-start">
                                 <div class="row">
@@ -83,3 +94,8 @@
         </div>
     </div>
 @endsection
+
+<script type="text/javascript">
+
+
+</script>

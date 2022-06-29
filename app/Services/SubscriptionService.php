@@ -2,17 +2,23 @@
 
 namespace App\Services;
 
+use App\Mail\NewSubscription;
+use App\Models\Subscription;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class SubscriptionService
 {
-    public function subsribe(Request $request)
+    public function subscribe(Request $request): void
     {
-        return Tag::create([
-            'name' => $request->name,
-            'style_class' => $request->style_class,
+        Subscription::create([
+            'email' => $request->email
         ]);
+
+        $message = (new NewSubscription($request->email))->onQueue('emails');
+
+        Mail::to($request->email)->queue($message);
     }
 
     public function unsubsribe(Tag $tag): void
