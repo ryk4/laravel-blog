@@ -121,8 +121,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item py-2" href="#">
-                                {{ __('Failed Jobs') }}
+                            <a class="dropdown-item py-2" href="{{ route('admin.jobs.index') }}">
+                                {{ __('Job Queue') }}
                             </a>
                             <a class="dropdown-item py-2" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

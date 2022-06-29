@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
@@ -33,4 +34,5 @@ Route::resource('subscribe-list', SubscriptionController::class)->only(['store']
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'checkUserLevel:admin']], function () {
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('tags', TagController::class);
+    Route::resource('jobs', JobController::class)->only(['index']);
 });

@@ -21,8 +21,8 @@ class SubscriptionService
         Mail::to($request->email)->queue($message);
     }
 
-    public function unsubsribe(Tag $tag): void
-    {
-        $tag->delete();
-    }
+//    public function unsubsribe(Tag $tag): void
+//    {
+//        $tag->delete();
+//    }
 }
