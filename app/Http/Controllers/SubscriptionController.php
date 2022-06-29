@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSubscribeListRequest;
 use App\Http\Requests\UpdateSubscribeListRequest;
-use App\Models\SubscribeList;
+use App\Models\Subscription;
 
-class SubscribeListController extends Controller
+class SubscriptionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,16 +36,23 @@ class SubscribeListController extends Controller
      */
     public function store(StoreSubscribeListRequest $request)
     {
-        //
+        Subscription::create([
+            'email'=>$request->email
+        ]);
+
+
+
+        return redirect()->route('blogs.index')
+            ->with('successStatus', 'subscribed');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\SubscribeList $subscribeList
+     * @param \App\Models\Subscription $subscribeList
      * @return \Illuminate\Http\Response
      */
-    public function show(SubscribeList $subscribeList)
+    public function show(Subscription $subscribeList)
     {
         //
     }
@@ -53,10 +60,10 @@ class SubscribeListController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\SubscribeList $subscribeList
+     * @param \App\Models\Subscription $subscribeList
      * @return \Illuminate\Http\Response
      */
-    public function edit(SubscribeList $subscribeList)
+    public function edit(Subscription $subscribeList)
     {
         //
     }
@@ -65,10 +72,10 @@ class SubscribeListController extends Controller
      * Update the specified resource in storage.
      *
      * @param \App\Http\Requests\UpdateSubscribeListRequest $request
-     * @param \App\Models\SubscribeList $subscribeList
+     * @param \App\Models\Subscription $subscribeList
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSubscribeListRequest $request, SubscribeList $subscribeList)
+    public function update(UpdateSubscribeListRequest $request, Subscription $subscribeList)
     {
         //
     }
@@ -76,10 +83,10 @@ class SubscribeListController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\SubscribeList $subscribeList
+     * @param \App\Models\Subscription $subscribeList
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SubscribeList $subscribeList)
+    public function destroy(Subscription $subscribeList)
     {
         //
     }

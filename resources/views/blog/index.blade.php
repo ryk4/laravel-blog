@@ -28,7 +28,7 @@
                 <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog">
-                        <form class="modal-content" action="{{ route('email.store') }}" method="POST">
+                        <form class="modal-content" action="{{ route('subscribe-list.store') }}" method="POST">
                             @method('POST')
                             @csrf
 
