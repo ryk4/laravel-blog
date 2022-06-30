@@ -18,7 +18,7 @@ class JobController extends Controller
         $failedJobs = FailedJob::all();
         $jobs = Job::all();
 
-        return view('admin.job.index', compact('failedJobs','jobs'));
+        return view('admin.job.index', compact('failedJobs', 'jobs'));
     }
 
     /**
@@ -39,7 +39,6 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -71,9 +70,8 @@ class JobController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Job $job)
     {
-        //
     }
 
     /**

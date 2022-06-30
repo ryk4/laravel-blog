@@ -33,8 +33,8 @@
                                     <th scope="col">Queue</th>
                                     <th scope="col">Payload</th>
                                     <th scope="col">Attempts</th>
-                                    <th scope="col">Created_at</th>
-                                    <th scope="col">Attempted_at</th>
+                                    <th scope="col">Available at</th>
+                                    <th scope="col">Created at</th>
                                 </tr>
                                 </thead>
                                 <tbody>

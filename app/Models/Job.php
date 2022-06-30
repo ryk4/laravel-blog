@@ -10,4 +10,9 @@ class Job extends Model
     protected $table = 'job';
 
     use HasFactory;
+
+    protected $casts = [
+        'available_at' => 'datetime',
+        'created_at' => 'datetime',
+    ];
 }
