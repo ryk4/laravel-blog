@@ -9,6 +9,7 @@ class ImageService
 {
     private const URL_IMAGE_UPLOAD = 'https://api.imgur.com/3/image';
 
+    //TODO handle authorization using OAuth2. Had issues with processing callback since it contains '#'
     public function authorize()
     {
     }
