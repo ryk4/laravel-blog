@@ -22,7 +22,7 @@ class BlogService
         return Blog::with('tags')->paginate($paginate);
     }
 
-    public function createBlog(Request $request,): Blog
+    public function createBlog(Request $request): Blog
     {
         $blog = auth()->user()->blogs()->create([
             'title' => $request->title,
