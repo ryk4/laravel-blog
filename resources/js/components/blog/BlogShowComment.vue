@@ -2,13 +2,6 @@
     <div v-if="dataLoaded" v-for="comment in this.comments" class="col-md-9 mb-2">
         <div class="comment-section">
             <div class="row py-2">
-                <!--                <div class="col-md-1">-->
-                <!--                    <div class="vote-area text-center py-2">-->
-                <!--                        <div><a href="#" class="vote-link">+</a></div>-->
-                <!--                        <div><b>{{ comment.votes }}</b></div>-->
-                <!--                        <div><a href="#" class="vote-link">-</a></div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
                 <div class="col-md-12  vote-text">
                     <div class="d-flex justify-content-between">
                         <div><b>{{ comment.name }}</b> <span class="ms-5 text-muted ">{{ comment.created_at }}</span>
@@ -28,7 +21,7 @@
         <div class="comment-section p-2">
             <div class="row">
                 <div class="col-md-4 mt-md-0 mt-3">
-                    <label class="form-label" for="title">Display name *</label>
+                    <label class="form-label" for="title">Display name (rk test)*</label>
                     <input class="form-control form-control-custom" :class="{ 'is-invalid': errors.name }" id="title"
                            v-model="commentCreateForm.name" placeholder="Enter display name">
                     <div v-if="errors.name" class="invalid-feedback">
@@ -71,16 +64,16 @@
 </template>
 
 <script>
-import BlogService from "../../Services/BlogService";
+import BlogService from "../../Services/BlogService.js";
 
-import {useAuthStore} from "../../store/modules/Auth";
+import {useAuthStore} from "../../store/modules/Auth.js";
 
 import {createPinia} from 'pinia';
 
 const pinia = createPinia()
 const authStore = useAuthStore(pinia);
 
-import Notification from "./../Helpers/Notification";
+import Notification from "./../Helpers/Notification.vue";
 
 export default {
     name: "BlogShowComment",

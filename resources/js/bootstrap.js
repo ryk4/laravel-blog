@@ -1,7 +1,8 @@
-window._ = require('lodash');
+import _ from 'lodash';
+window._ = _;
 
 try {
-    require('bootstrap');
+    // require('bootstrap');
 } catch (e) {
 }
 
@@ -15,7 +16,9 @@ window.Swal = Swal;
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+import axios from 'axios';
+
+window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
