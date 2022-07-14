@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('tip')->nullable();
             $table->string('summary');
             $table->string('image')->nullable();
-            $table->text('guide');
+            $table->longText('guide');
             $table->foreignId('user_id')->constrained('users');
             $table->string('verified')->default(0);
             $table->timestamps();

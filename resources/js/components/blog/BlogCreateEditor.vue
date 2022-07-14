@@ -1,6 +1,6 @@
 <template>
     <div class="col-md-12 my-2">
-        <QuillEditor toolbar="essential" v-model:content="content" :options="options" contentType="html"/>
+        <QuillEditor toolbar="full" v-model:content="content" :options="options" contentType="html"/>
     </div>
     <input type="hidden" name="guide" :value="content"/>
 </template>

@@ -34,9 +34,9 @@ class Blog extends Model
         return $this->created_at->format('D, d m Y');
     }
 
-    public function getImageAttribute(): string
+    public function getImageAttribute($value): string
     {
-        return (empty($this->image)) ? 'https://i.imgur.com/iub78DD.png' : $this->image;
+        return (isset($value)) ? $value : 'https://i.imgur.com/iub78DD.png';
     }
 
     public function getGuideAttribute($value)

@@ -8,7 +8,7 @@
             <div class="col-md-9 mb-4">
                 <div class="mb-0 mt-2 row">
                     <div class="col-md-4 col-12 order-md-last mb-3">
-                        <img src="/assets/images/img3.png" class="w-100">
+                        <img src="{{ $blog->image }}" class="w-100">
                     </div>
                     <div class="col-md-8 order-md-first">
                         <div class="text-custom-title-big">
