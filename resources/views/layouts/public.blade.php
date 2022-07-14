@@ -121,6 +121,9 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+{{--                            <a class="dropdown-item py-2" href="{{ route('admin.application-settings.index') }}">--}}
+{{--                                {{ __('Application settings') }}--}}
+{{--                            </a>--}}
                             <a class="dropdown-item py-2" href="{{ route('admin.jobs.index') }}">
                                 {{ __('Job Queue') }}
                             </a>

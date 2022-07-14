@@ -73,7 +73,7 @@
                         <div class="col-12 col-md-4 d-flex justify-content-center m-0">
                             <div class="card mx-3 mb-5">
                                 <div class="card-title">{{$blog->title}}</div>
-                                <img src="assets/images/img3.png" class="card-img-top">
+                                <img src="{{ $blog->image }}" class="card-img-top">
                                 <div class="my-2">
                                     @foreach($blog->tags as $tag)
                                         <span class="custom-tag {{ $tag->style_class }}">{{ $tag->name }}</span>

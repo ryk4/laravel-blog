@@ -34,6 +34,11 @@ class Blog extends Model
         return $this->created_at->format('D, d m Y');
     }
 
+    public function getImageAttribute(): string
+    {
+        return (empty($this->image)) ? 'https://i.imgur.com/iub78DD.png' : $this->image;
+    }
+
     public function getGuideAttribute($value)
     {
         $cssStyleClassesToBootstrap = [

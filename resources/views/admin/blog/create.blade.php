@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-md-12 my-2">
                         <label class="form-label" for="image">Choose file</label>
-                        <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}">
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
                     <blog-create-editor old="{{ old('guide') }}"></blog-create-editor>
                 </div>

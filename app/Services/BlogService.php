@@ -6,15 +6,23 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Support\Str;
+use Nette\Utils\Image;
 
 class BlogService
 {
+    private $imageUploadService;
+
+    public function __construct()
+    {
+        $this->imageUploadService = new ImageService();
+    }
+
     public function fetchPaginatedBlogs(int $paginate = 16): AbstractPaginator
     {
         return Blog::with('tags')->paginate($paginate);
     }
 
-    public function createBlog(Request $request): Blog
+    public function createBlog(Request $request,): Blog
     {
         $blog = auth()->user()->blogs()->create([
             'title' => $request->title,
@@ -29,6 +37,11 @@ class BlogService
             foreach ($tags as $tag) {
                 $blog->tags()->attach($tag);
             }
+        }
+
+        if (isset($request['image'])) {
+            $blog->image = $this->imageUploadService->uploadImage($request['image']);
+            $blog->save();
         }
 
         return $blog;

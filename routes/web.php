@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ApplicationSettingsController;
+use App\Http\Controllers\Admin\ImageUploaderController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
