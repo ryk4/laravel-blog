@@ -45,6 +45,11 @@
                         </div>
                     </div>
                     <div class="col-md-12 my-2">
+                        <label class="form-label" for="repository_url">Repository URL</label>
+                        <input class="form-control" id="repository_url" name="repository_url"
+                               value="{{ old('repository_url') ?? $blog->repository_url }}">
+                    </div>
+                    <div class="col-md-12 my-2">
                         <label class="form-label" for="image">Choose file (will override)</label>
                         <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}">
                     </div>

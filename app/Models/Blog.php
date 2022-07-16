@@ -12,7 +12,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'tip', 'summary', 'guide'];
+    protected $fillable = ['title', 'tip', 'summary', 'guide', 'repository_url','views'];
 
     public function user(): BelongsTo
     {
@@ -36,7 +36,7 @@ class Blog extends Model
 
     public function getImageAttribute($value): string
     {
-        return (isset($value)) ? $value : 'https://i.imgur.com/iub78DD.png';
+        return (isset($value)) ? $value : 'https://i.imgur.com/KXh7aOG.png';//default img
     }
 
     public function getGuideAttribute($value)

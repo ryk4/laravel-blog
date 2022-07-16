@@ -12,7 +12,8 @@
                     </ul>
                 </div>
             @endif
-            <form class="col-md-9" action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data">
+            <form class="col-md-9" action="{{ route('admin.blogs.store') }}" method="POST"
+                  enctype="multipart/form-data">
                 @method('POST')
                 @csrf
 
@@ -43,11 +44,16 @@
                         </div>
                     </div>
                     <div class="col-md-12 my-2">
+                        <label class="form-label" for="repository_url">Repository URL</label>
+                        <input class="form-control" id="repository_url" name="repository_url" value="{{ old('repository_url') }}">
+                    </div>
+                    <div class="col-md-12 my-2">
                         <label class="form-label" for="image">Choose file</label>
                         <input type="file" class="form-control" id="image" name="image">
                     </div>
                     <blog-create-editor old="{{ old('guide') }}"></blog-create-editor>
                 </div>
+                <br>
                 <div class="container mt-5 text-center">
                     <button type="submit" class="btn btn-custom-primary mx-2">Post blog</button>
                 </div>

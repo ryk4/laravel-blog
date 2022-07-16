@@ -15,7 +15,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $failedJobs = FailedJob::all();
+        $failedJobs = FailedJob::orderByDesc('failed_at')->get();
         $jobs = Job::all();
 
         return view('admin.job.index', compact('failedJobs', 'jobs'));

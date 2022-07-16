@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
+use App\Jobs\BlogIncrementView;
 use App\Models\Blog;
 use App\Services\BlogService;
 use Illuminate\Support\Str;
@@ -48,6 +49,8 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
+        BlogIncrementView::dispatch($blog);
+
         return view('blog.show', compact('blog'));
     }
 

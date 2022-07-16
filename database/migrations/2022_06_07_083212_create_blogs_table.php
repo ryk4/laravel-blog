@@ -18,9 +18,11 @@ return new class extends Migration {
             $table->string('tip')->nullable();
             $table->string('summary');
             $table->string('image')->nullable();
+            $table->string('repository_url')->nullable();
             $table->longText('guide');
             $table->foreignId('user_id')->constrained('users');
-            $table->string('verified')->default(0);
+            $table->integer('verified')->default(0);
+            $table->bigInteger('views')->default(0);
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ class BlogService
 
     public function fetchPaginatedBlogs(int $paginate = 16): AbstractPaginator
     {
-        return Blog::with('tags')->paginate($paginate);
+        return Blog::with('tags')->orderByDesc('views')->paginate($paginate);
     }
 
     public function createBlog(Request $request): Blog
@@ -28,7 +28,8 @@ class BlogService
             'title' => $request->title,
             'tip' => $request->tip,
             'summary' => $request->summary,
-            'guide' => $request->guide
+            'guide' => $request->guide,
+            'repository_url' => $request->repository_url
         ]);
 
         if ($request->tags) {
@@ -53,7 +54,8 @@ class BlogService
             'title' => $request->title,
             'tip' => $request->tip,
             'summary' => $request->summary,
-            'guide' => $request->guide
+            'guide' => $request->guide,
+            'repository_url' => $request->repository_url
         ]);
 
         $blog->tags()->detach();
