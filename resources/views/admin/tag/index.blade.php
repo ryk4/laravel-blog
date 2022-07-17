@@ -23,7 +23,7 @@
                             <tr>
                                 <th scope="row">{{ $key+1 }}</th>
                                 <td>{{ $tag->name }}</td>
-                                <td>{{ $tag->style_class }}</td>
+                                <td><span class="custom-tag {{ $tag->style_class }}">{{ $tag->style_class }}</span></td>
                                 <td>{{ $tag->numberOfUses() }}</td>
                                 <td class="">
                                     <a href="{{ route('admin.tags.edit', $tag) }}"

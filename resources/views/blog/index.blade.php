@@ -26,8 +26,8 @@
                 </div>
                 <div class="mb-0 mt-2 row justify-content-center">
                     <div class="col-12 col-md-6 text-center text-custom-small">
-                        Hey guys here you can find all the products and items I own and use myself daily. If L l you are
-                        interested in any of them,support me and grab them while they are available!!
+                        Hey fellow developers. I will mostly be writing Laravel and Vue related blogs as both of these
+                        technologies are my favourite. Code go brrrrr
                     </div>
                 </div>
                 <div class="d-flex justify-content-between mb-2 mt-3 mx-3 header-custom-medium">

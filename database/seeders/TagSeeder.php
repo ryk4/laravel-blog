@@ -31,8 +31,26 @@ class TagSeeder extends Seeder
 
         DB::table('tags')->insert([
             'id' => 3,
-            'name' => 'Vuex',
+            'name' => 'Pinia',
             'style_class' => 'tag-red',
+        ]);
+
+        DB::table('tags')->insert([
+            'id' => 4,
+            'name' => 'PHP',
+            'style_class' => 'tag-dark-green',
+        ]);
+
+        DB::table('tags')->insert([
+            'id' => 5,
+            'name' => 'SQL',
+            'style_class' => 'tag-red',
+        ]);
+
+        DB::table('tags')->insert([
+            'id' => 6,
+            'name' => 'Self improvement',
+            'style_class' => 'tag-pink',
         ]);
     }
 }
