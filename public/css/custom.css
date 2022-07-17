@@ -121,7 +121,7 @@ body {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 25px;
     text-align: center;
     color: #000000;
     border: 1px solid #000000;
@@ -150,6 +150,10 @@ body {
 
 .tag-yellow {
     background: #F2C94C;
+}
+
+.tag-pink {
+    background-color: #FF6CAC;
 }
 
 .tag-neutral {
@@ -219,9 +223,9 @@ body {
     border-radius: 6px;
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
-    line-height: 24px;
-    letter-spacing: 0.02em;
+    font-size: 16px;
+    /*line-height: 24px;*/
+    /*letter-spacing: 0.02em;*/
 }
 
 .comment-section {

@@ -52,8 +52,7 @@
                         <div class="modal-body text-start">
                             <div class="row">
                                 <div class="col-12 mb-3 text-muted">
-                                    I would love to have a chat with you about almost anything (I do not like potatos)
-                                    :)
+                                    I would love to have a chat with you about almost anything :)
                                 </div>
                                 <div class="col-6">
                                     <label class="form-label" for="name">Full name</label>
@@ -121,9 +120,9 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-{{--                            <a class="dropdown-item py-2" href="{{ route('admin.application-settings.index') }}">--}}
-{{--                                {{ __('Application settings') }}--}}
-{{--                            </a>--}}
+                            {{--                            <a class="dropdown-item py-2" href="{{ route('admin.application-settings.index') }}">--}}
+                            {{--                                {{ __('Application settings') }}--}}
+                            {{--                            </a>--}}
                             <a class="dropdown-item py-2" href="{{ route('admin.jobs.index') }}">
                                 {{ __('Job Queue') }}
                             </a>
@@ -159,26 +158,11 @@
             <span class="text-muted">© 2022 Rytis Klimavicius</span>
         </div>
 
-        <ul class="nav col-12 col-md-4 justify-content-end list-unstyled d-flex">
-            <span>Icons...</span>
-            <i class="bi-alarm"></i>
-
-            <li class="ms-3"><a class="text-muted" href="#">
-                    <svg class="bi" width="24" height="24">
-                        <use xlink:href="#twitter"></use>
-                    </svg>
-                </a></li>
-            <li class="ms-3"><a class="text-muted" href="#">
-                    <svg class="bi" width="24" height="24">
-                        <use xlink:href="#instagram"></use>
-                    </svg>
-                </a></li>
-            <li class="ms-3"><a class="text-muted" href="#">
-                    <svg class="bi" width="24" height="24">
-                        <use xlink:href="#facebook"></use>
-                    </svg>
-                </a></li>
-        </ul>
+        {{--        <ul class="nav col-12 col-md-4 justify-content-end list-unstyled d-flex">--}}
+        {{--            <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-github"></i></a></li>--}}
+        {{--            <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-envelope"></i></a></li>--}}
+        {{--            <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-twitter"></i></a></li>--}}
+        {{--        </ul>--}}
     </footer>
 </div>
 </body>
@@ -187,9 +171,9 @@
 <script>
 
     document.addEventListener("DOMContentLoaded", function () {
-        let successSatus = {!! json_encode(session('successStatus')) !!};
+        let successStatus = {!! json_encode(session('successStatus')) !!};
 
-        if (successSatus !== null) {
+        if (successStatus !== null) {
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'bottom',
@@ -203,7 +187,27 @@
             })
             Toast.fire({
                 icon: 'success',
-                title: successSatus
+                title: successStatus
+            })
+        }
+
+        let warningStatus = {!! json_encode(session('warningStatus')) !!};
+
+        if (warningStatus !== null) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: false,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                icon: 'warning',
+                title: warningStatus
             })
         }
     });

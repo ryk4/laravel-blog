@@ -20,10 +20,10 @@ class NewSubscription extends Mailable implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(string $email)
+    public function __construct(string $email, string $unsubscribeUrl)
     {
         $this->email = $email;
-        $this->unsubscribeUrl = 'www.byeeee.com';
+        $this->unsubscribeUrl = $unsubscribeUrl;
     }
 
     /**
