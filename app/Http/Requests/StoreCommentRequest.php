@@ -26,7 +26,7 @@ class StoreCommentRequest extends FormRequest
         return [
             'name' => ['required'],
             'email' => ['required', 'email'],
-            'website' => ['nullable', 'url'],
+            'website' => ['nullable'],
             'comment' => ['required'],
         ];
     }

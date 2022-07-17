@@ -68,6 +68,11 @@ class BlogService
             }
         }
 
+        if (isset($request['image'])) {
+            $blog->image = $this->imageUploadService->uploadImage($request['image']);
+            $blog->save();
+        }
+
         return $blog;
     }
 

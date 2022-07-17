@@ -25,7 +25,11 @@ Route::middleware(['auth:sanctum', 'checkUserLevel:admin'])->group(function () {
     Route::resource('blogs.comments', CommentController::class)->only(['destroy']);
 });
 
-Route::resource('blogs.comments', CommentController::class)->only(['store', 'index']);
+Route::resource('blogs.comments', CommentController::class)->only(['index']);
+
+Route::middleware(['throttle:comments'])->group(function () {
+    Route::resource('blogs.comments', CommentController::class)->only(['store']);
+});
 
 
 //--------------------------------FOR TESTING PURPOSES--------------------------------

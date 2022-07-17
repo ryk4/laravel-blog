@@ -112,6 +112,10 @@ export default {
                 this.resetFormFields();
                 this.getComments();
             }).catch(e => {
+                if (e.response.status === 429) {
+                    Notification.methods.warning('Too many requests. Wait before trying again');
+                }
+
                 this.errors = e.response.data.errors;
             });
         },

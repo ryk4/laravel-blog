@@ -29,7 +29,7 @@ class StoreBlogRequest extends FormRequest
             'summary' => 'required',
             'image' => '',
             'guide' => 'required',
-            'repository_url' => 'url',
+            'repository_url' => ['url', 'nullable'],
             'tags' => ''
         ];
     }

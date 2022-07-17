@@ -35,9 +35,17 @@
                         <i class="bi bi-lightbulb me-3" style="font-size: 20px;"></i>{{ $blog->tip }}
                     </div>
                 </div>
-                <div class="mb-0 my-4 mx-3">
+                <div class="mb-0 my-5 mx-3">
                     <div class="">{!! $blog->guide !!}</div>
                 </div>
+                @isset($blog->repository_url)
+                    <div class="mt-3">
+                        <div class="repository-url py-2 px-3">
+                            <i class="bi bi-github me-3" style="font-size: 20px;"></i>
+                            <a href="{{ $blog->repository_url }}">{{ $blog->repository_url }}</a>
+                        </div>
+                    </div>
+                @endisset
             </div>
             <blog-show-comment :blog="{{ $blog->id }}"></blog-show-comment>
         </div>

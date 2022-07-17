@@ -88,6 +88,13 @@ body {
     margin-top: -35px;
 }
 
+.avatar-img{
+    border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: white;
+}
+
 .header-custom-medium {
     font-style: normal;
     font-weight: 700;
@@ -197,6 +204,17 @@ body {
 
 .custom-blog-tip {
     background: rgba(218, 221, 64, 0.2);
+    border: 1px solid #000000;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+}
+
+.repository-url {
+    background: rgba(86, 242, 130, 0.4);
     border: 1px solid #000000;
     border-radius: 6px;
     font-style: normal;

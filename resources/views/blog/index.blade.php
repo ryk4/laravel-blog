@@ -18,7 +18,7 @@
                 </div>
                 <div class="mb-0 row justify-content-center">
                     <div class="col-12 text-center avatar-section">
-                        <img src="assets/images/img-avatar.png" class="card-img-top">
+                        <img src="assets/images/profile.jpg" class="card-img-top avatar-img">
                     </div>
                     <div class="col-12 text-center text-custom-title">
                         Rytis Klimavičius
