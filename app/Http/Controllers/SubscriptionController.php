@@ -37,12 +37,7 @@ class SubscriptionController extends Controller
                 ->with('warningStatus', 'Invalid link');
         }
 
-        return redirect()->route('blogs.index')
-            ->with('successStatus', 'You have unsubscribed');
+        return view('general.unsubscribe_confirm');
     }
 
-    public function confirm()
-    {
-        return view('general.unsubscribe-confirm');
-    }
 }
