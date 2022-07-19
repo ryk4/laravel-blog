@@ -16,7 +16,7 @@
                         <thead>
                         <tr>
                             <th scope="col">Title</th>
-                            <th scope="col">Views (not unique)</th>
+                            <th scope="col">Views</th>
                             <th scope="col">Tags</th>
                             <th scope="col">Created at</th>
                             <th scope="col">Actions</th>
