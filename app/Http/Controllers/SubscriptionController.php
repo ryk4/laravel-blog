@@ -40,4 +40,9 @@ class SubscriptionController extends Controller
         return redirect()->route('blogs.index')
             ->with('successStatus', 'You have unsubscribed');
     }
+
+    public function confirm()
+    {
+        return view('general.unsubscribe-confirm');
+    }
 }

@@ -33,6 +33,7 @@ Route::post('/contact-us', [EmailController::class, 'store'])->name('email.store
 Route::resource('blogs', BlogController::class)->only(['index', 'show']);
 Route::resource('subscribe-list', SubscriptionController::class)->only(['store']);
 Route::get('/unsubscribe/{email}', [SubscriptionController::class, 'destroy'])->name('subscribe-list.destroy');
+Route::get('/unsubscribe-confirm', [SubscriptionController::class, 'confirm'])->name('subscribe-list.confirm');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'checkUserLevel:admin']], function () {
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
