@@ -18,6 +18,7 @@ class BlogSeeder extends Seeder
         DB::table('blogs')->insert([
             'id' => 1,
             'title' => 'My first ever Laravel guide + some basic Vue',
+            'slug' => 'my-first-ever-laravel-guide-some-basic-Vue',
             'tip' => 'This guide concentrates on selft development rather than using some copy paste stuff.',
             'summary' => 'This topix cover some very simple guide opnm how to asd lasd authentication and some otherlea. ',
             'image' => '/some-url/',

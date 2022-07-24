@@ -37,7 +37,8 @@ class SubscriptionController extends Controller
                 ->with('warningStatus', 'Invalid link');
         }
 
-        return view('general.unsubscribe_confirm');
+        return view('general.unsubscribe_confirm')
+            ->with('successStatus', 'You have un-subscribed');;
     }
 
 }

@@ -32,7 +32,7 @@ class SubscriptionService
         Subscription::where('email', $email)->delete();
     }
 
-    private function generateUnsubscribeUrl($email): string
+    public function generateUnsubscribeUrl($email): string
     {
         return env('APP_URL') . '/unsubscribe/' . Crypt::encryptString($email);
     }

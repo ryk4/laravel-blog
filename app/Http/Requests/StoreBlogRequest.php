@@ -24,7 +24,7 @@ class StoreBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => ['required','unique'],
             'tip' => '',
             'summary' => 'required',
             'image' => '',

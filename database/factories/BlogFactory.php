@@ -16,6 +16,7 @@ class BlogFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(rand(3, 6)),
+            'slug' => $this->faker->slug(rand(3, 6)),
             'tip' => $this->faker->sentence(3),
             'summary' => $this->faker->sentence(rand(8, 13)),
             'guide' => $this->faker->sentence(3),

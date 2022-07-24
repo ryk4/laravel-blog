@@ -134,7 +134,7 @@
                                             <tr>
                                                 <td style="mso-padding-alt: 16px 24px; --bg-opacity: 1; background-color: #7367f0; background-color: rgba(115, 103, 240, var(--bg-opacity)); border-radius: 4px; font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif;"
                                                     bgcolor="rgba(115, 103, 240, var(--bg-opacity))">
-                                                    <a href="{{ route('blogs.index.show',$article->id) }}"
+                                                    <a href="{{ route('blogs.show',$blog->id) }}"
                                                        style="display: block; font-weight: 600; font-size: 14px; line-height: 100%; padding: 16px 24px; --text-opacity: 1; color: #ffffff; color: rgba(255, 255, 255, var(--text-opacity)); text-decoration: none;">View
                                                         Article &rarr;</a>
                                                 </td>
@@ -166,7 +166,7 @@
                                         <p style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity));">
                                             @ All rights reserved. <a href="{{ $unsubscribeUrl }}"
                                                                       style="text-decoration: none;">Unsubscribe
-                                            here</a>
+                                                here</a>
                                         </p>
                                     </td>
                                 </tr>
@@ -183,5 +183,4 @@
     </table>
 </div>
 </body>
-
 </html>

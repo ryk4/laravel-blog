@@ -2,9 +2,12 @@
 
 namespace App\Services;
 
+use App\Mail\NewBlogSubscriptionNotification;
 use App\Models\Blog;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\AbstractPaginator;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Nette\Utils\Image;
 
@@ -45,6 +48,8 @@ class BlogService
             $blog->save();
         }
 
+        $this->notifySubscribersWhenBlogIsCreated($blog);
+
         return $blog;
     }
 
@@ -79,5 +84,20 @@ class BlogService
     public function deleteBlog(Blog $blog): void
     {
         $blog->delete();
+    }
+
+    private function notifySubscribersWhenBlogIsCreated(Blog $blog): void
+    {
+        $subscriberList = Subscription::all();
+
+        $subscriptionService = new SubscriptionService();
+
+        $subscriberList->each(function ($subscriber, $key) use ($blog, $subscriptionService) {
+            $unsubscribeUrl = $subscriptionService->generateUnsubscribeUrl($subscriber->email);
+
+            $message = (new NewBlogSubscriptionNotification($blog, $unsubscribeUrl))->onQueue('emails');
+
+            Mail::to($subscriber->email)->queue($message);
+        });
     }
 }
