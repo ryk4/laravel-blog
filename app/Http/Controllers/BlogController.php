@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateBlogRequest;
 use App\Jobs\BlogIncrementView;
 use App\Models\Blog;
 use App\Services\BlogService;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 
 class BlogController extends Controller
@@ -32,7 +34,7 @@ class BlogController extends Controller
      * Store a newly created resource in storage.
      *
      * @param StoreBlogRequest $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(StoreBlogRequest $request)
     {
@@ -45,10 +47,14 @@ class BlogController extends Controller
      * Display the specified resource.
      *
      * @param Blog $blog
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show(Blog $blog)
+    public function show(string $slug)
     {
+        $blog = Blog::where('slug', $slug)->first();
+
+        (!isset($blog)) && abort(404);
+
         BlogIncrementView::dispatch($blog);
 
         return view('blog.show', compact('blog'));
@@ -57,8 +63,8 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @param Blog $blog
+     * @return Response
      */
     public function edit(Blog $blog)
     {
@@ -68,25 +74,14 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\UpdateBlogRequest $request
-     * @param \App\Models\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @param StoreBlogRequest $request
+     * @param Blog $blog
+     * @return RedirectResponse
      */
     public function update(StoreBlogRequest $request, Blog $blog)
     {
         $this->service->updateBlog($request, $blog);
 
         return redirect()->route('admin.blogs.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Blog $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Blog $blog)
-    {
-        //
     }
 }

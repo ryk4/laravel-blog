@@ -83,7 +83,8 @@
                                     {{ $blog->summary }}
                                 </div>
                                 <div class="mt-2">
-                                    <a href="{{ route('blogs.show', $blog) }}" class="btn btn-custom-neutral"><span
+                                    <a href="{{ route('blogs.show', $blog->slug) }}"
+                                       class="btn btn-custom-neutral"><span
                                             class="btn-custom-text">Read article</span></a>
                                 </div>
                             </div>

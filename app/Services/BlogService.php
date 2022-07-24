@@ -29,6 +29,7 @@ class BlogService
     {
         $blog = auth()->user()->blogs()->create([
             'title' => $request->title,
+            'slug' => Str::slug($request->title),
             'tip' => $request->tip,
             'summary' => $request->summary,
             'guide' => $request->guide,
@@ -57,6 +58,7 @@ class BlogService
     {
         $blog->update([
             'title' => $request->title,
+            'slug' => Str::slug($request->title),
             'tip' => $request->tip,
             'summary' => $request->summary,
             'guide' => $request->guide,
