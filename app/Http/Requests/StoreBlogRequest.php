@@ -25,7 +25,7 @@ class StoreBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', Rule::unique('blogs')->ignore($this->blog->id)],
+            'title' => ['required', 'unique:blogs'],
             'tip' => '',
             'summary' => 'required',
             'image' => '',
