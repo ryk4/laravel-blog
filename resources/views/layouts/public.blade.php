@@ -35,7 +35,6 @@
                 <span class="nav-item">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Contact us</a>
             </span>
-
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
@@ -101,17 +100,17 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
-{{--                        @if (Route::has('login'))--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
-{{--                            </li>--}}
-{{--                        @endif--}}
+                        {{--                        @if (Route::has('login'))--}}
+                        {{--                            <li class="nav-item">--}}
+                        {{--                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
+                        {{--                            </li>--}}
+                        {{--                        @endif--}}
 
-{{--                        @if (Route::has('register'))--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
-{{--                            </li>--}}
-{{--                        @endif--}}
+                        {{--                        @if (Route::has('register'))--}}
+                        {{--                            <li class="nav-item">--}}
+                        {{--                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
+                        {{--                            </li>--}}
+                        {{--                        @endif--}}
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -150,7 +149,8 @@
 </content>
 <footer class="mt-auto d-flex flex-wrap justify-content-between align-items-center pt-3 my-3 border-top">
     <div class="col-12 col-md-4 d-flex align-items-center">
-        <span class="mb-3 me-2 ms-5 mb-md-0 text-muted text-decoration-none lh-1 text-muted">© 2022 {{ env('APP_NAME') }}</span>
+        <span
+            class="mb-3 me-2 ms-5 mb-md-0 text-muted text-decoration-none lh-1 text-muted">© 2022 {{ env('APP_NAME') }}</span>
     </div>
 
     {{--        <ul class="nav col-12 col-md-4 justify-content-end list-unstyled d-flex">--}}
