@@ -14,11 +14,11 @@
             @endif
             <div class="col-md-9">
                 <div class="mb-0 mx-3">
-                    <img src="assets/images/bg-img.png" class="card-img-top">
+                    <img src="assets/images/bg-img.png" alt="background image" class="card-img-top">
                 </div>
                 <div class="mb-0 row justify-content-center">
                     <div class="col-12 text-center avatar-section">
-                        <img src="assets/images/profile.jpg" class="card-img-top avatar-img">
+                        <img src="assets/images/profile.jpg" alt="profile image" class="card-img-top avatar-img">
                     </div>
                     <div class="col-12 text-center text-custom-title">
                         Rytis Klimavičius
@@ -73,7 +73,7 @@
                         <div class="col-12 col-md-4 d-flex justify-content-center m-0">
                             <div class="card mx-3 mb-5">
                                 <div class="card-title">{{$blog->title}}</div>
-                                <img src="{{ $blog->image }}" class="card-img-top">
+                                <img src="{{ $blog->image }}" class="card-img-top" alt="{{ $blog->tag }}">
                                 <div class="my-2">
                                     @foreach($blog->tags as $tag)
                                         <span class="custom-tag {{ $tag->style_class }}">{{ $tag->name }}</span>
