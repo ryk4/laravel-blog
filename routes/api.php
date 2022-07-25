@@ -16,6 +16,10 @@ use App\Http\Controllers\Api\Blog\CommentController;
 |
 */
 
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
 Route::middleware(['auth:sanctum', 'checkUserLevel:admin'])->get('/user', function (Request $request) {
     return $request->user();
 });

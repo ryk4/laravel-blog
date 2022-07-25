@@ -20,6 +20,10 @@ use App\Http\Controllers\EmailController;
 |
 */
 
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
 Route::get('/', function () {
     return redirect()->route('blogs.index');
 });
