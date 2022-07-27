@@ -40,14 +40,16 @@
                                 <tbody>
                                 </tbody>
                                 @foreach($jobs as $job)
-                                    <td>{{ $job->id }}</td>
-                                    <td>{{ $job->queue }}</td>
-                                    <td>
-                                        <large-text-popover value="{{ $job->payload }}"></large-text-popover>
-                                    </td>
-                                    <td>{{ $job->attempts }}</td>
-                                    <td>{{ $job->available_at }}</td>
-                                    <td>{{ $job->created_at }}</td>
+                                    <tr>
+                                        <td>{{ $job->id }}</td>
+                                        <td>{{ $job->queue }}</td>
+                                        <td>
+                                            <large-text-popover value="{{ $job->payload }}"></large-text-popover>
+                                        </td>
+                                        <td>{{ $job->attempts }}</td>
+                                        <td>{{ $job->available_at }}</td>
+                                        <td>{{ $job->created_at }}</td>
+                                    </tr>
                                 @endforeach
                             </table>
                         </div>
