@@ -1,2 +1,2 @@
 web: vendor/bin/heroku-php-apache2 public/
-emails: php artisan queue:work --timeout=1800
+queue-worker: php artisan queue:work --queue=Emails,default --timeout=1800
