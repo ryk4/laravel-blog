@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-0 mt-2 row justify-content-center">
                     <div class="col-12 col-md-6 text-center text-custom-small">
-                        Hey fellow developers. I will mostly be writing Laravel and Vue related blogs as both of these
+                        I will mostly be writing Laravel and Vue related blogs as both of these
                         technologies are my favourite. Code go brrrrr
                     </div>
                 </div>

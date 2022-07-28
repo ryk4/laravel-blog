@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogRequest;
+use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Blog;
 use App\Services\BlogService;
 use Illuminate\Http\Request;
@@ -70,7 +71,7 @@ class BlogController extends Controller
      * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreBlogRequest $request, Blog $blog)
+    public function update(UpdateBlogRequest $request, Blog $blog)
     {
         $this->service->updateBlog($request, $blog);
 

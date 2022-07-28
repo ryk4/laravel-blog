@@ -150,7 +150,7 @@
 <footer class="mt-auto d-flex flex-wrap justify-content-between align-items-center pt-3 my-3 border-top">
     <div class="col-12 col-md-4 d-flex align-items-center">
         <span
-            class="mb-3 me-2 ms-5 mb-md-0 text-muted text-decoration-none lh-1 text-muted">© 2022 {{ env('APP_NAME') }}</span>
+            class="mb-3 me-2 ms-5 mb-md-0 text-muted text-decoration-none lh-1 text-muted">© 2022 All rights reserved</span>
     </div>
 
     {{--        <ul class="nav col-12 col-md-4 justify-content-end list-unstyled d-flex">--}}
