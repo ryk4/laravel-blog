@@ -157,6 +157,22 @@ body {
     background-color: #FF6CAC;
 }
 
+.tag-dark-brown{
+    background-color: #A26952;
+}
+
+.tag-light-brown{
+    background-color: #CCA290;
+}
+
+.tag-creme{
+    background-color: #FFC2B0;
+}
+
+.tag-dark-pink {
+    background-color: #B35598;
+}
+
 .tag-neutral {
     background-color: #FFFFFF;
 }

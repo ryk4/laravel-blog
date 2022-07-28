@@ -16,7 +16,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css?version=').time() }}" rel="stylesheet">
 </head>
 <body class="d-flex flex-column min-vh-100">
 <content>

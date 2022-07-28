@@ -64,7 +64,6 @@
                         <div class="">
                             <label class="form-label" for="title">Color Style</label>
                             <select class="form-select" name="style_class">
-                                <option selected>Select tag</option>
                                 @foreach($availableTagColors as $tag)
                                     <option value="{{ $tag }}">{{ $tag }}</option>
                                 @endforeach

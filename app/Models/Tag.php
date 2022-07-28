@@ -31,6 +31,10 @@ class Tag extends Model
             'tag-dar-green',
             'tag-yellow',
             'tag-neutral',
+            'tag-dark-brown',
+            'tag-light-brown',
+            'tag-creme',
+            'tag-dark-pink',
         ]);
 
         return $tags;
