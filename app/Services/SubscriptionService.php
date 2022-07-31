@@ -4,8 +4,6 @@ namespace App\Services;
 
 use App\Mail\NewSubscription;
 use App\Models\Subscription;
-use App\Models\Tag;
-use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;

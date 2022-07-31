@@ -12,5 +12,19 @@ php artisan storage:link
 php artisan migrate:fresh --seed
 php artisan serve
 
-php artisan queue:work --queue=Emails,default
+php artisan queue:work --queue=Emails,default --sleep=3 --tries=3 --max-time=3600 --timeout=1800
 ```
+
+Tasks:
+
+- ~~deploy to heroku~~
+- ~~SSL heroku~~
+- ~~queue worker heroku~~
+- ~~add more properties to queue workers~~
+- attach proper domain name
+- clean up github description
+- ~~add github url to project~~
+- ~~change mail:to..->onQueue('emails') to be using jobs and perform all the operations inside the job.~~
+- Service pattern for all logic
+- Repository pattern for db all interactions
+- gmail SMTP credentials

@@ -20,7 +20,7 @@
     }
     </style>
     <![endif]-->
-    <title>Welcome</title>
+    <title>New Blog Notification</title>
     <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
     <style>
         .hover-underline:hover {

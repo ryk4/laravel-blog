@@ -30,7 +30,7 @@
                 <a href="{{ route('blogs.index') }}">Blogs</a>
             </span>
                 <span class="nav-item">
-                <a href="#">Github</a>
+                <a href="https://github.com/ryk4">Github</a>
             </span>
                 <span class="nav-item">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Contact us</a>
