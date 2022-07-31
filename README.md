@@ -22,7 +22,7 @@ Tasks:
 - ~~queue worker heroku~~
 - ~~add more properties to queue workers~~
 - ~~attach proper domain name~~
-- SSL on godaddy (using redirect instead of masking temporary)
+- SSL on godaddy (temporary using redirect instead of masking)
 - clean up github description
 - ~~add github url to project~~
 - ~~change mail:to..->onQueue('emails') to be using jobs and perform all the operations inside the job.~~
@@ -31,3 +31,5 @@ Tasks:
 - Repository pattern for db all interactions
 - gmail SMTP credentials
 - Are PhpDoc comments required for controllers? psr?
+- Read and understand how SSL certificates work and how to install them
+- Install certificate for https://www.local-developer.com

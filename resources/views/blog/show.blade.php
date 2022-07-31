@@ -14,7 +14,7 @@
                         <div class="text-custom-title-big">
                             {{ $blog->title }}
                         </div>
-                        <div class="my-2">
+                        <div class="my-3">
                             @foreach($blog->tags as $tag)
                                 <span class="custom-tag {{ $tag->style_class }}">{{ $tag->name }}</span>
                             @endforeach
