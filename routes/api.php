@@ -25,7 +25,7 @@ Route::middleware(['auth:sanctum', 'checkUserLevel:admin'])->get('/user', functi
 });
 
 Route::middleware(['auth:sanctum', 'checkUserLevel:admin'])->group(function () {
-    Route::resource('tags', TagController::class);
+    Route::resource('tags', TagController::class)->only(['index']);
     Route::resource('blogs.comments', CommentController::class)->only(['destroy']);
 });
 

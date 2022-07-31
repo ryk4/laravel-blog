@@ -43,29 +43,6 @@ class CommentController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\BlogComment $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(BlogComment $comment)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \App\Http\Requests\UpdateCommentRequest $request
-     * @param \App\Models\BlogComment $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateCommentRequest $request, BlogComment $comment)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param \App\Models\BlogComment $comment

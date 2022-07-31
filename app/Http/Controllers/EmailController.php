@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactUs;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
@@ -13,7 +13,7 @@ class EmailController extends Controller
      * Send a new email
      *
      * @param Request $request
-     * @return Response
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {

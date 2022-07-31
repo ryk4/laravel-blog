@@ -94,6 +94,9 @@
                     <span class="nav-item">
                     <a href="{{ route('admin.tags.index') }}">Manage tags</a>
                 </span>
+                <span class="nav-item">
+                    <a href="#">Dashboard</a>
+                </span>
                 @endauth
             </div>
             <div class="col-3 text-end" id="navbarSupportedContent">
