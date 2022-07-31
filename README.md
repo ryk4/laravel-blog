@@ -21,7 +21,8 @@ Tasks:
 - ~~SSL heroku~~
 - ~~queue worker heroku~~
 - ~~add more properties to queue workers~~
-- attach proper domain name
+- ~~attach proper domain name~~
+- SSL on godaddy (using redirect instead of masking temporary)
 - clean up github description
 - ~~add github url to project~~
 - ~~change mail:to..->onQueue('emails') to be using jobs and perform all the operations inside the job.~~
