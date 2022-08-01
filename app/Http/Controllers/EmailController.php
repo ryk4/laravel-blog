@@ -3,12 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactUs;
+use App\Services\NotificationService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
+    private NotificationService $service;
+
+    public function __construct()
+    {
+        $this->service = new NotificationService();
+    }
+
     /**
      * Send a new email
      *
@@ -21,11 +29,10 @@ class EmailController extends Controller
             'name' => $request->name ?? 'N/A',
             'mobile' => $request->mobile ?? 'N/A',
             'comment' => $request->comment,
+            'email' => $request->email,
         ]);
 
-        $message = (new ContactUs($data))->onQueue('emails');
-
-        Mail::to($request->email)->queue($message);
+        $this->service->contactUsFormPost($data);
 
         return redirect()->route('blogs.index')
             ->with('successStatus', 'Email sent');

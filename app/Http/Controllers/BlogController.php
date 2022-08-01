@@ -6,6 +6,9 @@ use App\Http\Requests\StoreBlogRequest;
 use App\Jobs\BlogIncrementView;
 use App\Models\Blog;
 use App\Services\BlogService;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 
@@ -16,6 +19,9 @@ class BlogController extends Controller
         $this->service = new BlogService();
     }
 
+    /**
+     * @return Application|Factory|View
+     */
     public function index()
     {
         $blogs = $this->service->fetchPaginatedBlogs();
@@ -23,6 +29,9 @@ class BlogController extends Controller
         return view('blog.index', compact('blogs'));
     }
 
+    /**
+     * @return Application|Factory|View
+     */
     public function create()
     {
         return view('admin.blog.create');

@@ -16,6 +16,7 @@ class ContactUs extends Mailable implements ShouldQueue
     public string $name;
     public string $mobile;
     public string $comment;
+    public string $email;
 
     /**
      * Create a new message instance.
@@ -27,6 +28,7 @@ class ContactUs extends Mailable implements ShouldQueue
         $this->name = $data->get('name');
         $this->mobile = $data->get('mobile');
         $this->comment = $data->get('comment');
+        $this->email = $data->get('email');
     }
 
     /**

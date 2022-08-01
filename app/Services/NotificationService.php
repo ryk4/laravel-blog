@@ -2,9 +2,11 @@
 
 namespace App\Services;
 
+use App\Mail\ContactUs;
 use App\Mail\NewBlogSubscriptionNotification;
 use App\Models\Blog;
 use App\Models\Subscription;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
 
 class NotificationService
@@ -22,5 +24,12 @@ class NotificationService
 
             Mail::to($subscriber->email)->queue($message);
         });
+    }
+
+    public function contactUsFormPost(Collection $data): void
+    {
+        $message = (new ContactUs($data))->onQueue('emails');
+
+        Mail::to(env('MAIL_PRIMARY_EMAIL'))->send($message);
     }
 }

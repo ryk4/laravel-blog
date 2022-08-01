@@ -16,6 +16,8 @@ class NewBlogSubscriptionNotification extends Mailable
     public Blog $blog;
     public string $unsubscribeUrl;
 
+    public $subject = 'New blog notification';
+
     /**
      * Create a new message instance.
      *
