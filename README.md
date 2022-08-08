@@ -26,10 +26,10 @@ Tasks:
 - clean up github description
 - ~~add github url to project~~
 - ~~change mail:to..->onQueue('emails') to be using jobs and perform all the operations inside the job.~~
-- Service pattern for all logic
+- ~~Service pattern for all logic~~
 - Read on repository patterns and figure out the best approach for this project.
 - Repository pattern for db all interactions
-- gmail SMTP credentials
-- Are PhpDoc comments required for controllers? psr?
+- ~~gmail SMTP credentials~~
+- ~~Are PhpDoc comments required for controllers? psr?~~
 - Read and understand how SSL certificates work and how to install them
 - Install certificate for https://www.local-developer.com

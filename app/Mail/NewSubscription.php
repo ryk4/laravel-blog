@@ -15,6 +15,8 @@ class NewSubscription extends Mailable implements ShouldQueue
     public string $email;
     public string $unsubscribeUrl;
 
+    public $subject = 'New subscription';
+
     /**
      * Create a new message instance.
      *
