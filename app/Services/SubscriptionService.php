@@ -4,17 +4,23 @@ namespace App\Services;
 
 use App\Mail\NewSubscription;
 use App\Models\Subscription;
+use App\Repositories\SubscriptionRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;
 
 class SubscriptionService
 {
+    private SubscriptionRepository $repository;
+
+    public function __construct()
+    {
+        $this->repository = new SubscriptionRepository();
+    }
+
     public function subscribe(Request $request): void
     {
-        Subscription::create([
-            'email' => $request->email
-        ]);
+        $this->repository->create($request);
 
         $message = (new NewSubscription($request->email, self::generateUnsubscribeUrl($request->email)))->onQueue(
             'emails'
@@ -27,7 +33,7 @@ class SubscriptionService
     {
         $email = Crypt::decryptString($email);
 
-        Subscription::where('email', $email)->delete();
+        $this->repository->delete($email);
     }
 
     public function generateUnsubscribeUrl($email): string

@@ -3,36 +3,36 @@
 namespace App\Services;
 
 use App\Models\Tag;
+use App\Repositories\TagRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
 class TagService
 {
+    private TagRepository $repository;
+
+    public function __construct()
+    {
+        $this->repository = new TagRepository();
+    }
+
     public function getTags(): Collection
     {
-        return Tag::all();
+        return $this->repository->all();
     }
 
     public function createTag(Request $request): Tag
     {
-        return Tag::create([
-            'name' => $request->name,
-            'style_class' => $request->style_class,
-        ]);
+        return $this->repository->create($request);
     }
 
     public function updateTag(Request $request, Tag $tag): Tag
     {
-        $tag->update([
-            'name' => $request->name,
-            'style_class' => $request->style_class,
-        ]);
-
-        return $tag;
+        return $this->repository->update($request, $tag);
     }
 
-    public function deleteTag(Tag $tag): void
+    public function deleteTag(Tag $tag): bool
     {
-        $tag->delete();
+        return $this->repository->delete($tag);
     }
 }

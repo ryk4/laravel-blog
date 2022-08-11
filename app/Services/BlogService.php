@@ -11,22 +11,22 @@ use Illuminate\Pagination\AbstractPaginator;
 class BlogService
 {
     private $imageUploadService;
-    private $blogRepository;
+    private $repository;
 
     public function __construct()
     {
         $this->imageUploadService = new ImageService();
-        $this->blogRepository = new BlogRepository();
+        $this->repository = new BlogRepository();
     }
 
     public function fetchPaginatedBlogs(int $paginate = 16): AbstractPaginator
     {
-        return $this->blogRepository->all($paginate);
+        return $this->repository->all($paginate);
     }
 
     public function createBlog(Request $request): Blog
     {
-        $blog = $this->blogRepository->create($request);
+        $blog = $this->repository->create($request);
 
         BlogCreateNotifySubscribers::dispatch($blog)->onQueue('emails');
 
@@ -35,13 +35,13 @@ class BlogService
 
     public function updateBlog(Request $request, Blog $blog): Blog
     {
-        $blog = $this->blogRepository->update($blog, $request);
+        $blog = $this->repository->update($blog, $request);
 
         return $blog;
     }
 
     public function deleteBlog(Blog $blog): void
     {
-        $this->blogRepository->delete($blog);
+        $this->repository->delete($blog);
     }
 }

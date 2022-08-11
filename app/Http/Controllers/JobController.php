@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\JobInterface;
 use App\Models\FailedJob;
 use App\Models\Job;
+use App\Repositories\JobRepository;
 use Illuminate\Http\Response;
 
 class JobController extends Controller
 {
+    private JobRepository $repository;
+
+    public function __construct()
+    {
+        $this->repository = new JobRepository();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +24,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        $failedJobs = FailedJob::orderByDesc('failed_at')->get();
-        $jobs = Job::all();
+        $failedJobs = $this->repository->allFailedJobs();
+        $jobs = $this->repository->allPendingJob();
 
         return view('admin.job.index', compact('failedJobs', 'jobs'));
     }
