@@ -23,7 +23,7 @@ Tasks:
 - ~~add more properties to queue workers~~
 - ~~attach proper domain name~~
 - SSL on godaddy (temporary using redirect instead of masking)
-- clean up github description
+- ~~clean up github description~~
 - ~~add github url to project~~
 - ~~change mail:to..->onQueue('emails') to be using jobs and perform all the operations inside the job.~~
 - ~~Service pattern for all logic~~
