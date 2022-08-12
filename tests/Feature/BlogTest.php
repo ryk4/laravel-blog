@@ -14,7 +14,7 @@ class BlogTest extends TestCase
         self::authenticateAsAdmin();
     }
 
-    public function test_redirects_properly_to_blogs_index()
+    public function test_homepage_redirects_properly_to_blogs_index()
     {
         $response = $this->get('/');
         $response->assertRedirect(route('blogs.index'));
@@ -27,6 +27,11 @@ class BlogTest extends TestCase
         $response->assertSee('Blogs');
         $response->assertSee('Rytis Klimavičius');
     }
+
+    public function test_blog_create_only_admin_can_access_page()
+    {
+    }
+
 
     public function test_blog_create()
     {
@@ -47,7 +52,7 @@ class BlogTest extends TestCase
 
         $blog = Blog::orderByDesc('created_at')->first();
 
-        self::assertEquals('test title', $blog->title);
+        self::assertEquals($data['title'], $blog->title);
         self::assertEquals('basic summary', $blog->summary);
 
         $response->assertRedirect(route('blogs.index'));
@@ -73,7 +78,15 @@ class BlogTest extends TestCase
     {
     }
 
-    public function test_blog_only_admin_can_manage_blogs()
+    public function test_blog_guest_users_cannot_manage_blogs()
+    {
+    }
+
+    public function test_blog_normal_users_cannot_manage_blogs()
+    {
+    }
+
+    public function test_blog_show_redirects_to_correct_page()
     {
     }
 

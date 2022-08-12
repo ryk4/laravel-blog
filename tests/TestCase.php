@@ -18,6 +18,13 @@ abstract class TestCase extends BaseTestCase
         auth()->login($user);
     }
 
+    public function authenticateAsNormalUser()
+    {
+        $user = User::factory()->create(['role' => User::ROLE_NORMAL]);
+
+        auth()->login($user);
+    }
+
     public function authenticateAsGuest()
     {
         auth()->logout();

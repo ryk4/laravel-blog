@@ -33,3 +33,4 @@ Tasks:
 - ~~Are PhpDoc comments required for controllers? psr?~~
 - Read and understand how SSL certificates work and how to install them
 - Install certificate for https://www.local-developer.com
+- Add full test coverage for Blogs (guests and admins)
