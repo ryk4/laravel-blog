@@ -14,9 +14,11 @@ use Illuminate\Http\Response;
 
 class BlogController extends Controller
 {
-    public function __construct()
+    private BlogService $service;
+
+    public function __construct(BlogService $service)
     {
-        $this->service = new BlogService();
+        $this->service = $service;
     }
 
     /**

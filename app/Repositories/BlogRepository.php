@@ -39,11 +39,6 @@ class BlogRepository implements BlogInterface
             }
         }
 
-        if (isset($request['image'])) {
-            $blog->image = $this->imageUploadService->uploadImage($request['image']);
-            $blog->save();
-        }
-
         return $blog;
     }
 
@@ -68,16 +63,18 @@ class BlogRepository implements BlogInterface
             }
         }
 
-        if (isset($request['image'])) {
-            $blog->image = $this->imageUploadService->uploadImage($request['image']);
-            $blog->save();
-        }
-
         return $blog;
     }
 
     public function delete(Blog $blog): void
     {
         $blog->delete();
+    }
+
+    public function saveImage(Blog $blog, string $imageUrl): void
+    {
+        $blog->update([
+            'image' => $imageUrl
+        ]);
     }
 }

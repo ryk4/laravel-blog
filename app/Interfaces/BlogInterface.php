@@ -17,4 +17,6 @@ interface BlogInterface
     public function update(Blog $blog, Request $request): Blog;
 
     public function delete(Blog $blog): void;
+
+    public function saveImage(Blog $blog, string $imageUrl): void;
 }
