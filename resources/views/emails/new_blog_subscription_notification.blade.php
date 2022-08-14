@@ -96,8 +96,8 @@
 
 <body
     style="margin: 0; padding: 0; width: 100%; word-break: break-word; -webkit-font-smoothing: antialiased; --bg-opacity: 1; background-color: #eceff1; background-color: rgba(236, 239, 241, var(--bg-opacity));">
-<div style="display: none;">We are please to welcome you to PixInvent</div>
-<div role="article" aria-roledescription="email" aria-label="Welcome to PixInvent 👋" lang="en">
+<div style="display: none;">New blog has just dropped !</div>
+<div role="article" aria-roledescription="email" lang="en">
     <table style="font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif; width: 100%;" width="100%"
            cellpadding="0" cellspacing="0" role="presentation">
         <tr>
