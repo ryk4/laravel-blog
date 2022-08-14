@@ -2,7 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\Jobs\BlogCreateNotifySubscribers;
+use App\Jobs\BlogIncrementView;
 use App\Models\Blog;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 
 class BlogTest extends TestCase
@@ -45,6 +49,18 @@ class BlogTest extends TestCase
         self::authenticateAsAdmin();
         $response = $this->get(route('admin.blogs.create'));
         $response->assertStatus(200);
+
+        self::authenticateAsGuest();
+        $response = $this->get(route('admin.blogs.edit', $this->blog));
+        $response->assertStatus(302);
+
+        self::authenticateAsNormalUser();
+        $response = $this->get(route('admin.blogs.edit', $this->blog));
+        $response->assertStatus(403);
+
+        self::authenticateAsAdmin();
+        $response = $this->get(route('admin.blogs.edit', $this->blog));
+        $response->assertStatus(200);
     }
 
     public function test_blog_create()
@@ -63,8 +79,6 @@ class BlogTest extends TestCase
         $recordsCount = Blog::get()->count();
 
         self::assertEquals($initialRecordsCount + 1, $recordsCount);
-
-        $blog = Blog::orderByDesc('created_at')->first();
 
         self::assertDatabaseHas('blogs', ['title' => $data['title']]);
         self::assertDatabaseHas('blogs', ['summary' => $data['summary']]);
@@ -87,10 +101,40 @@ class BlogTest extends TestCase
 
     public function test_blog_create_attaches_image_correctly()
     {
+        $data = [
+            'title' => 'test title',
+            'guide' => 'guide test',
+            'repository_url' => 'https://www.test.com',
+            'summary' => 'basic summary',
+            'image' => UploadedFile::fake()->image('random.jpg')
+        ];
+
+        $response = $this->post(route('admin.blogs.store'), $data);
+
+        $blog = Blog::where('title', $data['title'])->first();
+
+        self::assertNotNull($blog->image);
+
+        $response->assertRedirect(route('blogs.index'));
     }
 
     public function test_blog_create_notifies_subscribers()
     {
+        $data = [
+            'title' => 'test title',
+            'guide' => 'guide test',
+            'repository_url' => 'https://www.test.com',
+            'summary' => 'basic summary',
+        ];
+
+        Queue::fake();
+
+        $response = $this->post(route('admin.blogs.store', $data));
+
+        Queue::assertPushed(BlogCreateNotifySubscribers::class);
+        Queue::assertNotPushed(BlogIncrementView::class);
+
+        $response->assertRedirect(route('blogs.index'));
     }
 
     public function test_blog_update_updates_data_correctly()
@@ -104,6 +148,7 @@ class BlogTest extends TestCase
         $response = $this->put(route('admin.blogs.update', $this->blog), $data);
 
         $response->assertStatus(302);
+        $response->assertRedirect(route('admin.blogs.index'));
 
         self::assertDatabaseHas('blogs', ['title' => $data['title']]);
         self::assertDatabaseHas('blogs', ['guide' => $data['guide']]);
@@ -120,13 +165,42 @@ class BlogTest extends TestCase
 
     public function test_blog_guest_users_cannot_manage_blogs()
     {
+        $data = [
+            'title' => 'new title',
+            'guide' => 'new guide',
+            'summary' => $this->blog->summary,
+        ];
+
+        self::authenticateAsGuest();
+        $response = $this->put(route('admin.blogs.update', $this->blog), $data);
+        $response->assertStatus(302);
+        $response->assertRedirect(route('login'));
     }
 
     public function test_blog_normal_users_cannot_manage_blogs()
     {
+        $data = [
+            'title' => 'new title',
+            'guide' => 'new guide',
+            'summary' => $this->blog->summary,
+        ];
+
+        self::authenticateAsNormalUser();
+        $response = $this->put(route('admin.blogs.update', $this->blog), $data);
+        $response->assertStatus(403);
     }
 
     public function test_blog_show_redirects_to_correct_page()
     {
+        self::authenticateAsGuest();
+        Queue::fake();
+
+        $response = $this->get(route('blogs.show', $this->blog->slug));
+
+        Queue::assertPushed(BlogIncrementView::class);
+
+        $response->assertStatus(200);
+        $response->assertSee($this->blog->title);
+        $response->assertSee($this->blog->guide);
     }
 }

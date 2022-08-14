@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Blog;
 use App\Models\BlogComment;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Subscription;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,14 +26,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-//        BlogComment::factory(10)->create();
+        Subscription::factory(3)->create();
 
 //        foreach (Blog::all() as $blog){
 //            $blog->comments()->create();
 //        }
 
         Blog::factory(3)
-            ->has(BlogComment::factory()->count(3),'comments')
+            ->has(BlogComment::factory()->count(3), 'comments')
             ->create();
     }
 }
