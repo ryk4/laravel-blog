@@ -12,7 +12,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'tip', 'summary', 'guide', 'repository_url', 'views', 'slug'];
+    protected $fillable = ['title', 'tip', 'summary', 'guide', 'repository_url', 'views', 'slug', 'image'];
 
     public function user(): BelongsTo
     {

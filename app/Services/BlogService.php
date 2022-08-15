@@ -52,7 +52,8 @@ class BlogService
     private function saveImage(Blog $blog, Request $request): void
     {
         if (isset($request['image'])) {
-            $this->repository->saveImage($blog, $this->imageUploadService->uploadImage($request['image']));
+            $imageUrl = $this->imageUploadService->uploadImage($request['image']);
+            $this->repository->saveImage($blog, $imageUrl);
         }
     }
 }

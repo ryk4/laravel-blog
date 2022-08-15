@@ -137,7 +137,7 @@ class BlogTest extends TestCase
         $response->assertRedirect(route('blogs.index'));
     }
 
-    public function test_blog_update_updates_data_correctly()
+    public function test_blog_update_modifies_data_correctly()
     {
         $data = [
             'title' => 'new title',
