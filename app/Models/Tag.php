@@ -28,7 +28,7 @@ class Tag extends Model
             'tag-light-green',
             'tag-dark-blue',
             'tag-red',
-            'tag-dar-green',
+            'tag-dark-green',
             'tag-yellow',
             'tag-neutral',
             'tag-dark-brown',
