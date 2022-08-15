@@ -13,60 +13,10 @@
                 </div>
             @endif
             <div class="col-md-9">
-                <div class="mb-0 mx-3">
-                    <img src="assets/images/bg-img.png" alt="background image" class="card-img-top">
-                </div>
-                <div class="mb-0 row justify-content-center">
-                    <div class="col-12 text-center avatar-section">
-                        <img src="assets/images/profile.jpg" alt="profile image" class="card-img-top avatar-img">
-                    </div>
-                    <div class="col-12 text-center text-custom-title">
-                        Rytis Klimavičius
-                    </div>
-                </div>
-                <div class="mb-0 mt-2 row justify-content-center">
-                    <div class="col-12 col-md-6 text-center text-custom-small">
-                        I will mostly be writing Laravel and Vue related blogs as both of these
-                        technologies are my favourite. Code go brrrrr
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between mb-2 mt-3 mx-3 header-custom-medium">
-                    <span>Blogs</span>
-                    <a href="#" class="btn btn-custom-subscribe" data-bs-toggle="modal"
-                       data-bs-target="#subscribeModal">Subscribe</a>
-                </div>
-                <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <form class="modal-content" action="{{ route('subscribe-list.store') }}" method="POST">
-                            @method('POST')
-                            @csrf
 
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="subscribeModalLabel">Subscribe</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-start">
-                                <div class="row">
-                                    <div class="col-12 mb-3 text-muted">
-                                        Subscribe if you wish to be notified when a new blog is published.
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label mt-3" for="email">Email *</label>
-                                        <input type="email" class="form-control form-control-custom"
-                                               id="comment" rows="3"
-                                               placeholder="Enter your email address"
-                                               name="email" required/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-custom-primary">Subscribe</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                @include('components.blog.blogger')
+
+                @include('components.blog.subscription-form')
 
                 <div class="row mt-4">
                     @foreach($blogs as $blog)
