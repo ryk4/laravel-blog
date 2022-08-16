@@ -17,6 +17,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css?version=').time() }}" rel="stylesheet">
+    @livewireStyles
+
 </head>
 <body class="d-flex flex-column min-vh-100">
 <content>
@@ -70,9 +72,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                {{--                            <a class="dropdown-item py-2" href="{{ route('admin.application-settings.index') }}">--}}
-                                {{--                                {{ __('Application settings') }}--}}
-                                {{--                            </a>--}}
+                                                            <a class="dropdown-item py-2" href="">
+                                                                {{ __('User Settings') }}
+                                                            </a>
                                 <a class="dropdown-item py-2" href="{{ route('admin.jobs.index') }}">
                                     {{ __('Job Queue') }}
                                 </a>
@@ -174,3 +176,4 @@
 </script>
 
 @yield('scripts')
+@livewireScripts
