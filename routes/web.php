@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ApplicationSettingsController;
 use App\Http\Controllers\Admin\ImageUploaderController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
@@ -43,4 +44,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'c
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('tags', TagController::class);
     Route::resource('jobs', JobController::class)->only(['index']);
+
+    Route::get('/settings', [UserController::class, 'edit'])->name('settings.edit');
+    Route::post('/settings', [UserController::class, 'update'])->name('settings.update');
+
 });
