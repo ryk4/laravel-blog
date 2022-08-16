@@ -20,6 +20,11 @@
         @csrf
 
         <div class="row mt-1">
+            <div class="col-md-12">
+                <div class="custom-blog-tip py-2 px-3">
+                    <i class="bi bi-exclamation-circle me-3" style="font-size: 20px;"></i>Leave password fields empty if you do not wish to modify password
+                </div>
+            </div>
             <div class="col-md-6 mt-3">
                 <div class="">
                     <label class="form-label" for="name">Full name</label>
@@ -31,9 +36,6 @@
                     <label class="form-label" for="email">Email</label>
                     <input class="form-control" id="email" name="email" wire:model="user.email">
                 </div>
-            </div>
-            <div class="col-md-12 mt-3 text-center">
-                <span class="" style="color:rgba(183,39,89,0.89)"><u>Leave password fields empty if you do not wish to modify password</u></span>
             </div>
             <div class="col-md-6 mt-3">
                 <div class="">

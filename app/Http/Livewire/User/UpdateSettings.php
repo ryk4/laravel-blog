@@ -46,11 +46,10 @@ class UpdateSettings extends Component
         $this->user->update([
             'name' => $this->user->name,
             'email' => $this->user->email,
+            'password' => empty($this->new_password) ? auth()->user()->getAuthPassword() : Hash::make(
+                $this->new_password
+            ),
         ]);
-
-        if (isset($this->new_password)) {
-            $this->user->update(['password' => Hash::make($this->new_password)]);
-        }
 
         self::resetFields();
 
