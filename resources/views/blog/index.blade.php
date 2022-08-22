@@ -29,9 +29,9 @@
                                         <span class="custom-tag {{ $tag->style_class }}">{{ $tag->name }}</span>
                                     @endforeach
                                 </div>
-                                <div class="text-custom-small">
-                                    {{ $blog->summary }}
-                                </div>
+{{--                                <div class="text-custom-small">--}}
+{{--                                    {{ $blog->summary }}--}}
+{{--                                </div>--}}
                                 <div class="mt-2">
                                     <a href="{{ route('blogs.show', $blog->slug) }}"
                                        class="btn btn-custom-neutral"><span
