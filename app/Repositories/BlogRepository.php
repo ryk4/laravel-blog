@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Classes\OrderByBase;
 use App\Interfaces\BlogInterface;
 use App\Models\Blog;
 use Illuminate\Http\Request;
@@ -10,9 +11,9 @@ use Illuminate\Support\Str;
 
 class BlogRepository implements BlogInterface
 {
-    public function all(int $paginate): LengthAwarePaginator
+    public function getAll(int $paginate, OrderByBase $orderBy): LengthAwarePaginator
     {
-        return Blog::with('tags')->orderByDesc('views')->paginate($paginate);
+        return Blog::with('tags')->orderBy($orderBy->column, $orderBy->order)->paginate($paginate);
     }
 
     public function find(Blog $blog): Blog

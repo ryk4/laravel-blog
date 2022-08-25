@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\OrderByBase;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
@@ -20,7 +21,9 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = $this->service->fetchPaginatedBlogs(20);
+        $orderBy = new OrderByBase('desc', 'views');
+
+        $blogs = $this->service->fetchPaginatedBlogs(16, $orderBy);
 
         return view('admin.blog.index', compact('blogs'));
     }

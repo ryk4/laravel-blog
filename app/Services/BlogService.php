@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Classes\OrderByBase;
 use App\Jobs\BlogCreateNotifySubscribers;
 use App\Models\Blog;
 use App\Repositories\BlogRepository;
@@ -19,9 +20,9 @@ class BlogService
         $this->repository = $repository;
     }
 
-    public function fetchPaginatedBlogs(int $paginate = 16): AbstractPaginator
+    public function fetchPaginatedBlogs(int $paginate = 16, OrderByBase $orderBy = null): AbstractPaginator
     {
-        return $this->repository->all($paginate);
+        return $this->repository->getAll($paginate, $orderBy);
     }
 
     public function createBlog(Request $request): Blog

@@ -47,5 +47,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'c
 
     Route::get('/settings', [UserController::class, 'edit'])->name('settings.edit');
     Route::post('/settings', [UserController::class, 'update'])->name('settings.update');
-
 });

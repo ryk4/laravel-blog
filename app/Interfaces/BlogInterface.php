@@ -2,13 +2,14 @@
 
 namespace App\Interfaces;
 
+use App\Classes\OrderByBase;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 interface BlogInterface
 {
-    public function all(int $paginate): LengthAwarePaginator;
+    public function getAll(int $paginate, OrderByBase $orderBy): LengthAwarePaginator;
 
     public function find(Blog $blog): Blog;
 
