@@ -155,6 +155,12 @@ class BlogTest extends TestCase
         self::assertDatabaseHas('blogs', ['id' => $this->blog->id, 'guide' => $data['guide']]);
     }
 
+    /**
+     * Slug is dependent on title. In routes we use slug for better SEO. If we update the slug, then
+     * notification emails will throw 404 when accessing a blog with a slug that doesnt exists.
+     *
+     * @return void
+     */
     public function test_blog_update_does_not_update_slug()
     {
         $data = [
