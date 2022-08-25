@@ -7,6 +7,7 @@ use App\Jobs\BlogIncrementView;
 use App\Models\Blog;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Queue;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class BlogTest extends TestCase
@@ -140,7 +141,7 @@ class BlogTest extends TestCase
     public function test_blog_update_modifies_data_correctly()
     {
         $data = [
-            'title' => 'new title',
+            'title' => 'very new title',
             'guide' => 'new guide',
             'summary' => $this->blog->summary,
         ];
@@ -150,8 +151,22 @@ class BlogTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect(route('admin.blogs.index'));
 
-        self::assertDatabaseHas('blogs', ['title' => $data['title']]);
-        self::assertDatabaseHas('blogs', ['guide' => $data['guide']]);
+        self::assertDatabaseHas('blogs', ['id' => $this->blog->id, 'title' => $data['title']]);
+        self::assertDatabaseHas('blogs', ['id' => $this->blog->id, 'guide' => $data['guide']]);
+    }
+
+    public function test_blog_update_does_not_update_slug()
+    {
+        $data = [
+            'title' => 'new title',
+            'guide' => 'new guide',
+            'summary' => $this->blog->summary,
+        ];
+
+        $this->put(route('admin.blogs.update', $this->blog), $data);
+
+        self::assertDatabaseHas('blogs', ['id' => $this->blog->id, 'slug' => $this->blog->slug]);
+        self::assertDatabaseMissing('blogs', ['id' => $this->blog->id, 'slug' => Str::slug($data['title'])]);
     }
 
     public function test_blog_delete()

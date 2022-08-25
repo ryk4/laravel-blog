@@ -47,7 +47,6 @@ class BlogRepository implements BlogInterface
     {
         $blog->update([
             'title' => $request->title,
-            'slug' => Str::slug($request->title),
             'tip' => $request->tip,
             'summary' => $request->summary,
             'guide' => $request->guide,
