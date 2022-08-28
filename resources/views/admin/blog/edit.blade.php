@@ -20,7 +20,7 @@
                 <div class="row mt-1">
                     <div class="col-md-6">
                         <div class="">
-                            <label class="form-label" for="title">Title</label>
+                            <label class="form-label" for="title">Title (30-60 chars)</label>
                             <input class="form-control" id="title" name="title"
                                    value="{{ old('title') ?? $blog->title }}">
                         </div>
@@ -50,7 +50,7 @@
                                value="{{ old('repository_url') ?? $blog->repository_url }}">
                     </div>
                     <div class="col-md-12 my-2">
-                        <label class="form-label" for="image">Choose file (will override)</label>
+                        <label class="form-label" for="image">Choose file (will override existing one. preferably 150px x 250px)</label>
                         <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}">
                     </div>
                     <blog-create-editor old="{{ old('guide') ?? $blog->guide }}"></blog-create-editor>

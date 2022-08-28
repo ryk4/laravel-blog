@@ -20,7 +20,7 @@
                 <div class="row mt-1">
                     <div class="col-md-6">
                         <div class="">
-                            <label class="form-label" for="title">Title</label>
+                            <label class="form-label" for="title">Title (30-60 chars)</label>
                             <input class="form-control" id="title" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                         <input class="form-control" id="repository_url" name="repository_url" value="{{ old('repository_url') }}">
                     </div>
                     <div class="col-md-12 my-2">
-                        <label class="form-label" for="image">Choose file</label>
+                        <label class="form-label" for="image">Choose file (preferably 150px x 250px)</label>
                         <input type="file" class="form-control" id="image" name="image">
                     </div>
                     <blog-create-editor old="{{ old('guide') }}"></blog-create-editor>

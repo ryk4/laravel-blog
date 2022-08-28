@@ -273,6 +273,12 @@ body {
     line-height: 21px;
 }
 
+.blog-image{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
 /* <pre></pre> For code blocks */
 
 pre {
