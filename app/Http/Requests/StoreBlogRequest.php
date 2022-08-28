@@ -27,7 +27,7 @@ class StoreBlogRequest extends FormRequest
         return [
             'title' => ['required', 'unique:blogs'],
             'tip' => '',
-            'summary' => 'required',
+            'summary' => '',
             'image' => '',
             'guide' => 'required',
             'repository_url' => ['url', 'nullable'],

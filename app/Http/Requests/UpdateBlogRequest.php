@@ -27,7 +27,7 @@ class UpdateBlogRequest extends FormRequest
         return [
             'title' => ['required', Rule::unique('blogs')->ignore($this->blog->id)],
             'tip' => '',
-            'summary' => 'required',
+            'summary' => '',
             'image' => '',
             'guide' => 'required',
             'repository_url' => ['url', 'nullable'],
